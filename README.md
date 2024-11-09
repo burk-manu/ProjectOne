@@ -37,7 +37,7 @@ To set up Project One on your computer:
 1. **Clone the repository**:
    (or download it as a ZIP file)
    ```bash
-   git clone https://github.com/burk-manu/3H-Project.git
+   git clone https://github.com/burk-manu/Project-One.git
 
 3. **Run the Programme**:  
    Run the main.mastermath.py document (Thonny is recommended)
