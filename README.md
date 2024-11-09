@@ -1,6 +1,8 @@
-# Master Math
+# Project One
 
 **Master Math** is a Python-based educational project that can solve a wide variety of fundamental and complex mathematical problems. Designed for students and math enthusiasts, it includes an array of additional features, such as a built-in console, customizable settings, and various extra functions to support learning and exploration.
+
+![picture](ProjectOne.picture.png)
 
 ## Table of Contents
 - [Features](#features)
