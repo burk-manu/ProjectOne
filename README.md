@@ -2,9 +2,13 @@
 
 ![picture](ProjectOne.picture.png)
 
+---
+
 **Project One** is a complex programme with many different functions. The majority of these are the calculation functions. These are spread over several modules and are grouped together under the name Master Math. Project One has a number of other features such as a system console, log files, settings, synchronisable documents and many more.
 
 **Master Math** is a Python-based educational project that can solve a wide variety of fundamental and complex mathematical problems. It is designed to be used as intuitively as possible and can solve and calculate functions, integrals, logarithms, roots and other mathematical tasks. The system can also calculate with constants such as pi or e.
+
+---
 
 ## Table of Contents
 - [Features](#features)
