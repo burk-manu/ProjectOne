@@ -28,8 +28,7 @@ To set up Master Math on your local machine:
 
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/MasterOfMathematics/MasterMath.git
-   cd master-math
+   git clone https://github.com/burk-manu/3H-Project.git
 
 ## Usage
 Once you've installed Master Math on your computer, run Main.py and follow the instructions.
