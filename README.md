@@ -1,8 +1,10 @@
 # Project One
 
-**Master Math** is a Python-based educational project that can solve a wide variety of fundamental and complex mathematical problems. Designed for students and math enthusiasts, it includes an array of additional features, such as a built-in console, customizable settings, and various extra functions to support learning and exploration.
-
 ![picture](ProjectOne.picture.png)
+
+**Project One** is a complex programme with many different functions. The majority of these are the calculation functions. These are spread over several modules and are grouped together under the name Master Math. Project One has a number of other features such as a system console, log files, settings, synchronisable documents and many more.
+
+**Master Math** is a Python-based educational project that can solve a wide variety of fundamental and complex mathematical problems. It is designed to be used as intuitively as possible and can solve and calculate functions, integrals, logarithms, roots and other mathematical tasks. The system can also calculate with constants such as pi or e.
 
 ## Table of Contents
 - [Features](#features)
@@ -18,7 +20,7 @@
 
 ## Features
 
-Master Math offers a range of tools and functionalities, including:
+Project One offers a range of tools and functionalities, including:
 - **Basic Mathematical Operations**: Addition, subtraction, multiplication, division, modulo and power.
 - **Advanced Calculations**: square roots, calulate zeros of functions, integrals, and logarithms.
 - **Customizable Settings**: Set the duration of the log rotation and more.
@@ -26,7 +28,7 @@ Master Math offers a range of tools and functionalities, including:
 
 ## Installation
 
-To set up Master Math on your computer:
+To set up Project One on your computer:
 
 1. **Clone the repository**:
    (or download it as a ZIP file)
@@ -40,7 +42,7 @@ To set up Master Math on your computer:
    Follow the instructions given on the console
 
 ## Usage
-Once you've installed Master Math on your computer, run Main.py and follow the instructions.
+Once you've installed Project One on your computer, run Main.py and follow the instructions.
 If you need help, make sure you are connected to the internet.
 Then type 'help', this command will open a document in your browser.
 
