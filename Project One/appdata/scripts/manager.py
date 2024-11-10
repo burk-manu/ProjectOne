@@ -43,7 +43,7 @@ def open_link_in_browser(url): # opens a specific URL in the browser
 # Operatiosn Assignment Module: checks the input and forwards it to the relevant calculation module
 def operation_assignment_module(user_input, ans):
     if "help" in user_input: # opens document with input structure, error-code meanings and other important informations
-        open_link_in_browser("https://eduzg-my.sharepoint.com/:w:/r/personal/burk_manu_2022_ksz_edu-zg_ch/Documents/Exports/Master%20Math/User%20Guide/Master%20Math%20syntax%20of%20Inputs.docx?d=w2721a43b317f49dcb88a2aac33343a9b&csf=1&web=1&e=VaJnkv")
+        open_link_in_browser("https://eduzg-my.sharepoint.com/:f:/g/personal/burk_manu_2022_ksz_edu-zg_ch/EviqcQd93dJOv9hP0eUGdMkBBppDHHHLWhCKwl_MPkYbLg?e=vY0rQG")
         return "opening documents"
     elif "ans" in user_input:
         user_input = user_input.replace("ans",str(ans))
