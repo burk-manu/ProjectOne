@@ -1,6 +1,6 @@
 # Project One
 
-![picture](ProjectOne/appdata/icons/ProjectOneIcon.png)
+![picture](appdata/icons/ProjectOneIcon.png)
 
 ---
 
