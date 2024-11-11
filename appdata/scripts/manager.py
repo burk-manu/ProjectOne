@@ -26,7 +26,7 @@ operators = ["sqrt", "int","f", "log", "ln", "+", "-", "*", "/", "^", "%", "sin"
 
 def programm_started(): # run when the programme starts
     prepare.prepare() # preparing and running background activities
-    system.get_system_information()
+    system.get_operating_system()
 
 
 # general functions [intro, open URLs]

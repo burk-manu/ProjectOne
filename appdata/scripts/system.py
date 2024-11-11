@@ -4,6 +4,7 @@ import os
 import socket
 import json
 import uuid
+import platform
 
 import log
 
@@ -11,8 +12,8 @@ def get_mac_adress():
     mac_adress = ':'.join(['{:02x}'.format((uuid.getnode() >> elements) & 0xff) for elements in range(0,2*6,2)][::-1])
     return mac_adress
 
-def get_system_information():
-    return "nothing"
+def get_operating_system():
+    return platform.system()
 
 def change_accesscontrol_status(status):
     with open(os.path.join(os.getcwd(), r"appdata\system\systemdata\accesscontrol.config"), 'r') as accesscontrol_document:
