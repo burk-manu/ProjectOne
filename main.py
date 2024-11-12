@@ -27,7 +27,7 @@ def access_check():
 # programm begins
 try:
     
-    access_check()
+    system_status = access_check()
 
     import sys
     import os
@@ -47,7 +47,7 @@ try:
     import console
     import system
 
-    system.change_accesscontrol_status(access_check())
+    system.document_writer("accesscontrol.config", "status", system_status)
 
     # programm starts
     manager.programm_started() # activates the function "programm_started"
@@ -79,7 +79,7 @@ try:
                 else:
                     print(colorama.Fore.LIGHTMAGENTA_EX + "▸",printable) # prints out the returen of the console
 
-except Exception as e:
+except ZeroDivisionError as e:
         print("Sorry! Something unexpected went wrong...", f"[{e}]")
 print("Contact the developer at burk.manu.2022@ksz.edu-zg.ch | The bug will be fixed as soon as possible.") # prints an error for an unexpected error
 input("press enter to open Wolframalpha")
