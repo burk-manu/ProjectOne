@@ -6,6 +6,7 @@ from datetime import datetime, timedelta
 
 
 import manager
+import system
 
 date = datetime.now().date() # current date
 document_name = f"{date}.log" # name of the current logfile
@@ -34,7 +35,7 @@ def delete_old_logs():
         if isinstance(config, list):
             log_rotation = config[0].get('logfile_rotation', None)  # if config is a list get the first element
         else:
-            log_rotation = config.get('logfile_rotation', None)  # if config is a dictionary
+            log_rotation = config.get('logfile_rotation', None)  # if config is anything esle (in this case a dictionary)
         
         if log_rotation is None:
             print(error("logfile_rotation key not found in settings", "Delete Old Logfiles", "X103"))
@@ -67,7 +68,12 @@ def delete_old_logs():
     except Exception as e:
         print(error("Something unexpected went wrong.", "logfile manager", "X102"))
 
+
+
 def change_log_rotation(user_input):
+    system.document_writer("settings.config", "logfile_rotation", int(user_input))
+
+"""
     path = os.getcwd()  # path of the 'Main.py' script
     path_settings = os.path.join(path, "appdata\system\systemdata\settings.config")
     with open(path_settings, 'r') as settings: # opens doument in reading mode
@@ -87,3 +93,4 @@ def change_log_rotation(user_input):
             return f"logfile rotation time set to {new_rotation} days."
     else:
         return "logfile_rotation key not found in settings."
+"""

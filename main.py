@@ -46,7 +46,11 @@ try:
     import log
     import console
     import system
-
+    
+    # system.create_file(r"Test.txt", r"C:\Users\burk.manu.2022\Desktop")
+    
+    # system.remove_file(r"C:\Users\burk.manu.2022\Desktop\Test.txt")
+    
     system.document_writer("accesscontrol.config", "status", system_status)
 
     # programm starts

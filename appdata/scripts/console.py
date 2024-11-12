@@ -52,7 +52,7 @@ def set_max_int_len(user_input): # change the max limit of
 
 
 def reset():
-    system.change_accesscontrol_status(None)
+    system.document_writer("accesscontrol.config", "status", None)
     log.change_log_rotation(14)
     log.log_entry("system resetted", "console")
     exit()   
