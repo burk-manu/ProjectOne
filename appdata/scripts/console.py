@@ -9,7 +9,7 @@ import manager
 
 
 def console(user_input):
-    # Definiere die Aktionen mit regulären Ausdrücken und entsprechenden Funktionen
+    # define actions and expressions
     actions = {
         r"^break$": lambda: "break",
         r"^exit$": lambda: (log.log_entry("Process ended with user input 'exit' in console", "console"), exit()),
@@ -17,12 +17,12 @@ def console(user_input):
         r"^system info$": return_system_info,
         r"^change log rotation (\d+)$": lambda: log.change_log_rotation(user_input[20:]),
         r"^set max int len (\d+)$": lambda: set_max_int_len(user_input[16:]),
-        r"^report bug$": lambda: (manager.open_link_in_browser("https://friendly-texture-b76.notion.site/13a28ff5262880faa57ed8a7d6581cf3?pvs=105"), "opening website"),
+        r"^report bug$": lambda: (system.open_link_in_browser("https://friendly-texture-b76.notion.site/13a28ff5262880faa57ed8a7d6581cf3?pvs=105"), "opening website"),
         r"^read [\w.]+, \w+$": lambda: (system.document_reader(*user_input[5:].split(", ")))
 
     }
 
-    # Iteriere über die Aktionen und prüfe auf Übereinstimmung
+    # finds the matching key and runs the action from this key
     for pattern, action in actions.items():
         if re.match(pattern, user_input):
             log.log_entry("console received input from the Input Loop", "console")

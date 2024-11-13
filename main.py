@@ -75,7 +75,7 @@ try:
             print(colorama.Fore.LIGHTMAGENTA_EX + "console started . . .")
             log.log_entry("Console started", "Input Loop")
             while True: # continues to prompt for input
-                printable = console.console(input(colorama.Fore.LIGHTMAGENTA_EX + "▢ Enter a command: "))
+                printable = console.console(input(colorama.Fore.LIGHTMAGENTA_EX + ">>> "))
                 if printable == "break": # if input is 'close' console will be stopped
                     print(colorama.Fore.LIGHTMAGENTA_EX + "console stopped")
                     log.log_entry("Console stopped by 'break'", "Input Loop")
@@ -86,5 +86,3 @@ try:
 except ZeroDivisionError as e:
         print("Sorry! Something unexpected went wrong...", f"[{e}]")
 print("Contact the developer at burk.manu.2022@ksz.edu-zg.ch | The bug will be fixed as soon as possible.") # prints an error for an unexpected error
-input("press enter to open Wolframalpha")
-manager.open_link_in_browser("Wolframalpha.com")

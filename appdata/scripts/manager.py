@@ -5,7 +5,6 @@ import os
 import colorama
 import re
 import time
-import webbrowser
 import datetime
 
 # import required files
@@ -33,17 +32,12 @@ def programm_started(): # run when the programme starts
 def print_intro(): # prints intro
     print(colorama.Fore.BLUE + " ✦ M A S T E R   M ∀ T H ✦ ")
     print("")
-    
-def open_link_in_browser(url): # opens a specific URL in the browser
-    webbrowser.open(url)
-    log.log_entry(f"opening website with url: {url}", "Operation Assignment Module")
-    return "opening website"
 
 
 # Operatiosn Assignment Module: checks the input and forwards it to the relevant calculation module
 def operation_assignment_module(user_input, ans):
     if "help" in user_input: # opens document with input structure, error-code meanings and other important informations
-        open_link_in_browser("https://eduzg-my.sharepoint.com/:f:/g/personal/burk_manu_2022_ksz_edu-zg_ch/EviqcQd93dJOv9hP0eUGdMkBBppDHHHLWhCKwl_MPkYbLg?e=vY0rQG")
+        system.open_link_in_browser("https://eduzg-my.sharepoint.com/:f:/g/personal/burk_manu_2022_ksz_edu-zg_ch/EviqcQd93dJOv9hP0eUGdMkBBppDHHHLWhCKwl_MPkYbLg?e=vY0rQG")
         return "opening documents"
     elif "ans" in user_input:
         user_input = user_input.replace("ans",str(ans))

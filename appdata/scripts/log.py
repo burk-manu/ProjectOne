@@ -16,6 +16,12 @@ path_log_file = os.path.join(path, "appdata\log", document_name) # path of the l
 if not os.path.isdir(os.path.join(path, "appdata\log")):
     os.makedirs(os.path.join(path, "appdata\log"))
 
+def create_logfile():
+    if not system.file_exists(path, document_name):
+        with open(path_log_file, 'w') as document: # öffnet das Log-File
+            programm_version = system.document_reader("information.config", "Version")
+            document.write(f"running Master Math version: {programm_version}")
+
 def error(error, module, code):
     date = datetime.now().strftime("%d.%m.%Y %H:%M:%S") # Setzt die Variable date auf das aktuelle Datum und die Aktuelle Uhrzeit ohne Kommastellen der Sekunden
     with open(path_log_file, 'a') as document: # öffnet das Log-File
