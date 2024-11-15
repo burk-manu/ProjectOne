@@ -49,7 +49,7 @@ def accesscontrol():
             if platform.system() == "Windows":
                 print("detected windows as your operating system")
             else:
-                print("looks like you're no using windows as your operating system; This may causes errors")
+                print("looks like you're not using windows as your operating system; This may causes errors")
         except Exception:
             pass
         

@@ -37,10 +37,10 @@ def operation_assignment_module(user_input, ans): # Operation Assignment Module 
     operations = {
         r"^help$": lambda: system.open_link_in_browser("https://eduzg-my.sharepoint.com/:f:/g/personal/burk_manu_2022_ksz_edu-zg_ch/EviqcQd93dJOv9hP0eUGdMkBBppDHHHLWhCKwl_MPkYbLg?e=vY0rQG"), # opens help document
         r"^sqrt\(\d+\)$": lambda: squareroot.sqare_root_calculating_module(user_input), # calculates squareroot
-        r"^int\(\d+,\d+,[\w\+\-\*\/\^]+,\w\)$": lambda: integral.integral_calculating_module(user_input), # calculates an integral
-        r"^f\(\w\) = [\w\+\-\*\/\^]+$": lambda: function.function_calculating_module(user_input), # calculates Zeros of functions
+        r"^int\(\d+,\d+,[\w\+\-\*\/\^ ]+,\w\)$": lambda: integral.integral_calculating_module(user_input), # calculates an integral
+        r"^f\(\w\) = [\w\+\-\*\/\^ ]+$": lambda: function.function_calculating_module(user_input), # calculates Zeros of functions
         r"^log\(\d+\, \d+\)$" or r"^ln\(\d+\)$" or r"^log10\(\d+\)$": lambda: logarithm.logarithm_calculation_module(user_input), # calculates logarithms
-        r"^[\d\+\-\*\/\%\^]+$": lambda: basic_operations.basic_operations_module(user_input) # calculates basic operations
+        r"^[\d\+\-\*\/\%\^ ]+$": lambda: basic_operations.basic_operations_module(user_input) # calculates basic operations
         }
     
     for key, action in operations.items():

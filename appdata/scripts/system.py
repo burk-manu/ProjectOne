@@ -57,7 +57,7 @@ def create_file(name, path=(os.path.join(os.getcwd(), r"appdata\system\systemdat
     if os.path.exists(os.path.join(path, name), 'w'):
         return "File already exists"
     with open(os.path.join(path, name), 'w'):
-        pass
+        return f"File {name} successfully created"
     
     
 def remove_file(path):
@@ -71,23 +71,3 @@ def open_link_in_browser(url): # opens a specific URL in the browser
     webbrowser.open(url)
     log.log_entry(f"opening website with url: {url}", "Operation Assignment Module")
     return "opening website"
-
-
-
-"""
-def change_accesscontrol_file(key, value):
-    with open(os.path.join(os.getcwd(), r"appdata\system\systemdata\accesscontrol.config"), 'r') as accesscontrol_document:
-        accesscontrol_status = json.load(accesscontrol_document)
-        if key in accesscontrol_status:
-            accesscontrol_status[key] = value
-            return f"information {key} in accesscontrol.config changed to {value}"
-        else :
-            return f"in the dictionary accesscontrol.config doesn't exist a key {key}"
-           
-    with open(os.path.join(os.getcwd(), r"appdata\system\systemdata\accesscontrol.config"), 'w') as accesscontrol_document:
-        json.dump(accesscontrol_status, accesscontrol_document, indent=4)
-        
-        log.log_entry(f"accesscontrol status and hostname changed successfully to status: '{status}' and hostname: '{get_mac_adress()}'", "system")
-        return f"accesscontrol status successfully changed to {status}"
-
-"""
