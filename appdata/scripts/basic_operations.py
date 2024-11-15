@@ -1,8 +1,6 @@
 import math
 import sympy as sp
-import os
 
-import manager
 import log
 
 def basic_operations_module(user_input): # function to calculate basic operations / terms
