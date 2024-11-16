@@ -14,7 +14,7 @@ def console(user_input):
     # define actions and expressions
     actions = {
         r"^break$": lambda: "break",
-        r"^exit$": lambda: (log.log_entry("Process ended with user input 'exit' in console", "console"), exit()),
+        r"^exit$": lambda: (logger.info("Process ended with user input 'exit' in console", "console"), exit()),
         r"^reset$": reset,
         r"^system info$": return_system_info,
         r"^set max int len (\d+)$": lambda: set_max_int_len(user_input[16:]),
