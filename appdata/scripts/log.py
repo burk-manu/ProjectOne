@@ -19,7 +19,7 @@ def setup_logger(name="host", log_dir="appdata/log", max_bytes=1024**2, backup_c
 
     # handler for console statements
     console_handler = logging.StreamHandler()
-    console_handler.setLevel(logging.INFO)
+    console_handler.setLevel(logging.WARNING)
     console_formatter = logging.Formatter("%(levelname)s - %(message)s")
     console_handler.setFormatter(console_formatter)
 

@@ -9,6 +9,8 @@ import webbrowser
 
 import log
 
+logger = log.setup_logger(name=f"host.{__name__}")
+
 def get_mac_adress(): # returns the mac adress [AI]
     mac_adress = ':'.join(['{:02x}'.format((uuid.getnode() >> elements) & 0xff) for elements in range(0,2*6,2)][::-1])
     return mac_adress
@@ -18,11 +20,8 @@ def get_operating_system(): # retunrns the operatings system
 
 def file_exists(path, name):
     file_path = os.path.join(path, name)
-    if os.path.exists(file_path):
-        return True
-    else:
-        return False
-
+    return os.path.exists(file_path)
+    
 def document_writer(document_name, key, value, element=0):
     directory_path = os.path.join(os.getcwd(), r"appdata\system\systemdata")
     document_path = os.path.join(directory_path, document_name)
@@ -69,5 +68,5 @@ def remove_file(path):
 
 def open_link_in_browser(url): # opens a specific URL in the browser
     webbrowser.open(url)
-    logger.info(f"opening website with url: {url}", "Operation Assignment Module")
-    return "opening website"
+    logger.info(f"opening website with url: {url}")
+    return "opening website . . . "

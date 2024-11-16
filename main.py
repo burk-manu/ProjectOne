@@ -4,7 +4,7 @@ import sys
 import colorama
 
 # Import necessary modules
-path_scripts = os.path.join(os.getcwd(), "appdata/scripts")
+path_scripts = os.path.join(os.getcwd(), r"appdata\scripts")
 sys.path.insert(0, path_scripts)
 
 import log
