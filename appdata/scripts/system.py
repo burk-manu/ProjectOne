@@ -18,9 +18,8 @@ def get_mac_adress(): # returns the mac adress [AI]
 def get_operating_system(): # retunrns the operatings system
     return platform.system()
 
-def file_exists(path, name):
-    file_path = os.path.join(path, name)
-    return os.path.exists(file_path)
+def file_exists(path):
+    return os.path.exists(path)
     
 def document_writer(document_name, key, value, element=0):
     directory_path = os.path.join(os.getcwd(), r"appdata\system\systemdata")
@@ -44,13 +43,16 @@ def document_writer(document_name, key, value, element=0):
     
 def document_reader(document_name, key, element=0):
     document_path = os.path.join(os.getcwd(), r"appdata\system\systemdata",document_name)
-    with open (document_path, 'r') as document_json:
-        document = json.load(document_json)
-        if isinstance(document, list):
-            document = document[element]
-        if isinstance(document, dict):
-            value = document[key]
-        return value
+    if file_exists(document_path):
+        with open (document_path, 'r') as document_json:
+            document = json.load(document_json)
+            if isinstance(document, list):
+                document = document[element]
+            if isinstance(document, dict):
+                value = document[key]
+                return value
+    else:
+        return f"couldn't find File {document_name} in 'appdata\system\systemdata'"
 
 def create_file(name, path=(os.path.join(os.getcwd(), r"appdata\system\systemdata"))):
     if os.path.exists(os.path.join(path, name), 'w'):

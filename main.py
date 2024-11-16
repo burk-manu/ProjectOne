@@ -65,10 +65,9 @@ def main():
             else:
                 solution = manager.operation_assignment_module(user_input, previous_solution)
                 logger.debug("Received response from Operation Assignment Module")
-                if solution is not None:
-                    print(colorama.Fore.GREEN + str(solution))
-                    if "ERROR" not in str(solution):
-                        previous_solution = solution
+                print(colorama.Fore.GREEN + str(solution))
+                if solution != None:
+                    previous_solution = solution
 
     except ZeroDivisionError as e:
         print(f"Unexpected error occurred: [{e}]")
