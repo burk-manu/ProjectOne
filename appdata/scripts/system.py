@@ -69,5 +69,5 @@ def remove_file(path):
 
 def open_link_in_browser(url): # opens a specific URL in the browser
     webbrowser.open(url)
-    log.log_entry(f"opening website with url: {url}", "Operation Assignment Module")
+    logger.info(f"opening website with url: {url}", "Operation Assignment Module")
     return "opening website"
