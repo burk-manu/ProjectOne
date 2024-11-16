@@ -10,7 +10,6 @@ import datetime
 # import required files
 import log
 import console
-import prepare
 import system
 
 import logarithm
@@ -19,11 +18,7 @@ import function
 import squareroot
 import basic_operations
 
-
-
-def programm_started(): # run when the programme starts
-    prepare.prepare() # preparing and running background activities
-    system.get_operating_system()
+logger = log.setup_logger(name=f"host.{__name__}")
 
 
 def print_intro(): # prints intro
@@ -36,10 +31,10 @@ def print_intro(): # prints intro
 def operation_assignment_module(user_input, ans): # Operation Assignment Module tries to figure out which kind of operation the input is
     operations = {
         r"^help$": lambda: system.open_link_in_browser("https://eduzg-my.sharepoint.com/:f:/g/personal/burk_manu_2022_ksz_edu-zg_ch/EviqcQd93dJOv9hP0eUGdMkBBppDHHHLWhCKwl_MPkYbLg?e=vY0rQG"), # opens help document
-        r"^sqrt\(\d+\)$": lambda: squareroot.sqare_root_calculating_module(user_input), # calculates squareroot
+        r"^sqrt\(\d+(\.\d+)?\)$": lambda: squareroot.sqare_root_calculating_module(user_input), # calculates squareroot
         r"^int\(\d+,\d+,[\w\+\-\*\/\^ ]+,\w\)$": lambda: integral.integral_calculating_module(user_input), # calculates an integral
         r"^f\(\w\) = [\w\+\-\*\/\^ ]+$": lambda: function.function_calculating_module(user_input), # calculates Zeros of functions
-        r"^log\(\d+\, \d+\)$" or r"^ln\(\d+\)$" or r"^log10\(\d+\)$": lambda: logarithm.logarithm_calculation_module(user_input), # calculates logarithms
+        r"^(log\(\d+\, \d+\)|ln\(\d+\)|log10\(\d+\))$": lambda: logarithm.logarithm_calculation_module(user_input), # calculates logarithms
         r"^[\d\+\-\*\/\%\^ ]+$": lambda: basic_operations.basic_operations_module(user_input) # calculates basic operations
         }
     
@@ -47,4 +42,4 @@ def operation_assignment_module(user_input, ans): # Operation Assignment Module 
         if re.match(key, user_input):
             return action()
     
-    return log.error("Invalid input: The operation could not be executed", "Operation Assignment Module", "101") # returns an error if the input has an invalid syntax
+    logger.info("Invalid input: The operation could not be executed") # returns an error if the input has an invalid syntax

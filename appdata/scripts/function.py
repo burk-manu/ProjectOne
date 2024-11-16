@@ -6,16 +6,18 @@ import re
 import manager
 import log
 
+logger = log.setup_logger(name=f"host.{__name__}")
+
 def function_calculating_module(user_input): # Das function calculating module berechnet die Nullstellen einer Funktion; Abkürzung fcm
-    if re.match(r'^f\([a-z]\) = ',user_input[0:7]):
+    if re.match(r"^f\(\w\) = [\w\+\-\*\/\^ ]+$",user_input):
         solve_for = sp.symbols(str(user_input[2]))
         cut = user_input.index("=") + 1
         function = user_input[cut:] # Der Teil nach dem 'f(x) = ' wird extrahiert
         function = function.replace("^", "**") # Die Funktion wird angepasst so dass sie der 'Python-Sprache' entspricht
         function = str(function) # wandelt die Funtkion in einen String um
         function = re.sub(rf"(\d){solve_for}", rf"\1*{solve_for}", function) # Fügt die fehlenden Multiplikationszeichen ein
-        log.log_entry(f"function was converted to the Python language; [function:{function}]", "Function Calculating Module")
-        log.log_entry(f"calculating zeros of the function f({solve_for}): = {function}; solve for: {solve_for}", "Function Calculating Module")
+        logger.debug(f"function was converted to the Python language")
+        logger.debug(f"calculating zeros of the function")
         try:
             function = sp.sympify(function)  # String in SymPy-Ausdruck umwandeln [KI]
             solutions = sp.solve(function, solve_for) # Berechnet die Nullstellen der Funktion
@@ -31,6 +33,6 @@ def function_calculating_module(user_input): # Das function calculating module b
             f''({solve_for}) = 				{derivation2}
             f'''({solve_for}) = 				{derivation3}"""  # sendet die Lösungen zurück an das oam
         except sp.SympifyError:
-            return log.error("Invalid input: The zeros of the function can not be calculated", "Function Calculating Module", "401")
+            return logger.info("Invalid input: The zeros of the function can not be calculated")
     else:
-        return log.error("Invalid input: Make sure to use the structure 'f(x) = ' ", "Function Calculating Module", "402")
+        return logger.info("Invalid input: Make sure to use the structure 'f(x) = ' ")

@@ -6,6 +6,7 @@ import re
 import manager
 import log
 
+logger = log.setup_logger(name=f"host.{__name__}")
 
 def integral_calculating_module(user_input):
     try:
@@ -21,6 +22,6 @@ def integral_calculating_module(user_input):
             integral = sp.integrate(function, (solve_for, begin_value, end_value)) # calculates intergral
             return integral
         else:
-            return log.error("Invalid Input", "Integral Calculating Module", "501")
+            logger.info("Invalid Input", "Integral Calculating Module", "501")
     except ValueError:
-        return log.error("Invalid Input", "Integral Calculating Module", "502")
+        logger.info("Invalid Input", "Integral Calculating Module", "502")
