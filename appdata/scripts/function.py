@@ -33,6 +33,6 @@ def function_calculating_module(user_input): # Das function calculating module b
             f''({solve_for}) = 				{derivation2}
             f'''({solve_for}) = 				{derivation3}"""  # sendet die Lösungen zurück an das oam
         except sp.SympifyError:
-            return logger.info("Invalid input: The zeros of the function can not be calculated")
+            logger.info("Invalid input: The zeros of the function can not be calculated")
     else:
-        return logger.info("Invalid input: Make sure to use the structure 'f(x) = ' ")
+        logger.info("Invalid input: Make sure to use the structure 'f(x) = ' ")

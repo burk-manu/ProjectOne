@@ -14,6 +14,6 @@ def sqare_root_calculating_module(user_input): # sqaure root module calculates t
             number = float(user_input[5:-1]) # eextracts number from the input
             return math.sqrt(number) # returns the calculated solution of the sqare root
         except ValueError: # retruns an error if the number is invalid
-            return logger.info("Invalid number") # returns an error
+            logger.info("Invalid number") # returns an error
     else:
-        return logger.info("Invalid input: The operation could not be executed") # returns an error if input doesn't follow the syntax
+        logger.info("Invalid input: The operation could not be executed") # returns an error if input doesn't follow the syntax

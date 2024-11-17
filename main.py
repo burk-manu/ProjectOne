@@ -58,7 +58,7 @@ def main():
                 while True:
                     console_output = console.console(input(colorama.Fore.LIGHTMAGENTA_EX + ">>> ").strip())
                     if console_output == "break":
-                        logger.info("Console stopped")
+                        logger.debug("Console stopped")
                         break
                     elif console_output:
                         print(colorama.Fore.LIGHTMAGENTA_EX + "▸", console_output)
