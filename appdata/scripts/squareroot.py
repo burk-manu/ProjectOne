@@ -6,7 +6,7 @@ import re
 import manager
 import log
 
-logger = log.setup_logger(name=f"host.{__name__}")
+logger = log.setup_logger(name=f"host.{__name__}") # setup logger
 
 def sqare_root_calculating_module(user_input): # sqaure root module calculates the squareroot of a number
     if re.match(r"^sqrt\(\d+(\.\d+)?\)$", user_input): # checks if structure of input is 'sqrt(NUMBER)'

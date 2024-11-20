@@ -2,24 +2,19 @@ import math
 import re
 
 def calculate_trigonometric_functions(user_input):
-    # Regex für trigonometrische Funktionen mit einer Zahl oder einem Ausdruck in Klammern
+    # reular expressions for the triconometric functions
     pattern = r"(sin|cos|tan|asin|acos|atan)\((-?\d+(\.\d+)?)\)"
     
-    # Funktion, die für jedes Regex-Match die Berechnung durchführt
+    # function for every regex-match
     def replace_function(match):
-        func = match.group(1)  # Name der Funktion (sin, cos, ...)
-        number = float(match.group(2))  # Extrahierte Zahl als Float
-        # Verwende die math-Funktion dynamisch mit getattr
+        func = match.group(1)  # name of the function (sin, cos, ...)
+        number = float(match.group(2))  # extract the number as a float
+        # math function with dynamic getattr
         result = getattr(math, func)(number)
-        return str(result)  # Ersetze das Match durch den berechneten Wert
+        return str(result)  # replace match with calculated vlaue
     
-    # Ersetze alle trigonometrischen Funktionen im Eingabestring
+    # replace all triconometric strings in the input
     while re.search(pattern, user_input):
         user_input = re.sub(pattern, replace_function, user_input)
     
     return user_input
-
-# Beispielaufruf
-user_input = input("Enter a calculation with trigonometric functions: ")
-result = calculate_trigonometric_functions(user_input)
-print(result)

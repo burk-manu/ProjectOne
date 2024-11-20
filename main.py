@@ -54,7 +54,7 @@ def main():
         while True:
             user_input = input(colorama.Fore.WHITE + "▷ Enter a calculation: ").strip()
             if user_input == "console":
-                logger.info("Console started")
+                logger.debug("Console started")
                 while True:
                     console_output = console.console(input(colorama.Fore.LIGHTMAGENTA_EX + ">>> ").strip())
                     if console_output == "break":

@@ -9,7 +9,7 @@ import webbrowser
 
 import log
 
-logger = log.setup_logger(name=f"host.{__name__}")
+logger = log.setup_logger(name=f"host.{__name__}") # setup logger
 
 def get_mac_adress(): # returns the mac adress [AI]
     mac_adress = ':'.join(['{:02x}'.format((uuid.getnode() >> elements) & 0xff) for elements in range(0,2*6,2)][::-1])

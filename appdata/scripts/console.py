@@ -7,7 +7,7 @@ import log
 import system
 import manager
 
-logger = log.setup_logger(name=f"host.{__name__}")
+logger = log.setup_logger(name=f"host.{__name__}") # setup logger
 
 
 def console(user_input):
@@ -19,7 +19,8 @@ def console(user_input):
         r"^system info$": return_system_info,
         r"^set max int len (\d+)$": lambda: set_max_int_len(user_input[16:]),
         r"^report bug$": lambda: system.open_link_in_browser("https://friendly-texture-b76.notion.site/13a28ff5262880faa57ed8a7d6581cf3?pvs=105"),
-        r"^read [\w.]+, \w+$": lambda: (system.document_reader(*user_input[5:].split(", ")))
+        r"^read [\w.]+, \w+$": lambda: (system.document_reader(*user_input[5:].split(", "))),
+        r"^clear$": lambda: os.system('cls')
 
     }
 

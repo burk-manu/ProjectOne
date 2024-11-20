@@ -5,7 +5,7 @@ import os
 import manager
 import log
 
-logger = log.setup_logger(name=f"host.{__name__}")
+logger = log.setup_logger(name=f"host.{__name__}") # setup logger
 
 def logarithm_calculation_module(user_input):
     if user_input.startswith("log10(") and user_input.endswith(")"):

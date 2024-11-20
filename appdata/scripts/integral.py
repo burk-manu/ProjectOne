@@ -6,11 +6,11 @@ import re
 import manager
 import log
 
-logger = log.setup_logger(name=f"host.{__name__}")
+logger = log.setup_logger(name=f"host.{__name__}") # setup logger
 
 def integral_calculating_module(user_input):
     try:
-        if re.match(r"int\(\d+,\d+,[\w\+\-\*\/\^ ]+,\w\)", user_input):
+        if re.match(r"int\(\d+,\d+,[\w\+\-\*\/\^ ]+,\w\)", user_input): # pattern for integral regex
             integral = user_input[4:-1]
             begin_value, end_value, function, solve_for = integral.split(",")
             begin_value, end_value = float(begin_value), float(end_value)

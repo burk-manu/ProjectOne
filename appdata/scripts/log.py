@@ -3,7 +3,7 @@ import logging
 import logging.handlers
 import datetime
 
-def setup_logger(name="host", log_dir="appdata/log", max_bytes=1024**2, backup_count=4):
+def setup_logger(name="host", log_dir="appdata/log", max_bytes=1024**2, backup_count=4): # function to setup loggers
     
     # create logfile name and path
     logfile_name = f"{datetime.datetime.now().strftime('%Y-%m-%d')}.{name}.log"
