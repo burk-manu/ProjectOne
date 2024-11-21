@@ -1,11 +1,9 @@
-import sys
-import shutil
 import os
-import socket
 import json
 import uuid
 import platform
 import webbrowser
+import keyboard
 
 import log
 
@@ -72,3 +70,7 @@ def open_link_in_browser(url): # opens a specific URL in the browser
     webbrowser.open(url)
     logger.info(f"opening website with url: {url}")
     return "opening website . . . "
+
+def setup_keyboard():
+    keyboard.add_hotkey('ctrl+l', lambda: os.system('cls'))
+    keyboard.add_hotkey('f1', lambda: open_link_in_browser("https://eduzg-my.sharepoint.com/:f:/g/personal/burk_manu_2022_ksz_edu-zg_ch/EviqcQd93dJOv9hP0eUGdMkBBppDHHHLWhCKwl_MPkYbLg?e=vY0rQG"))

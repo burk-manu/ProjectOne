@@ -9,9 +9,9 @@ import log
 logger = log.setup_logger(name=f"host.{__name__}") # setup logger
 
 def function_calculating_module(user_input): # calculates Zeros of a function, derivatives and antiderivatives
-    if re.match(r"^f\(\w\) = [\w\+\-\*\/\^ ]+$",user_input):
+    if re.match(r"^f\(\w\)=[\w\+\-\*\/\^]+$",user_input):
         solve_for = sp.symbols(str(user_input[2]))
-        cut = user_input.index("=") + 1
+        cut = user_input.index("=")+1
         function = user_input[cut:] # extracting part after the 'f(x) = '
         function = function.replace("^", "**")
         function = str(function) # converts function into a string

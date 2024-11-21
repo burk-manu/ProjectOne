@@ -16,6 +16,8 @@ import acesscontrol
 # Setup Logger
 logger = log.setup_logger(name="host")
 
+system.setup_keyboard()
+
 def access_check(): # Checks system access control and handles errors.
 
     try:
@@ -52,7 +54,7 @@ def main():
         previous_solution = None
 
         while True:
-            user_input = input(colorama.Fore.WHITE + "▷ Enter a calculation: ").strip()
+            user_input = input(colorama.Fore.WHITE + "▷ Enter a calculation: ").strip().replace(" ", "")
             if user_input == "console":
                 logger.debug("Console started")
                 while True:
