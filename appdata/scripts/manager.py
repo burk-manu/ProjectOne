@@ -13,6 +13,7 @@ import integral
 import function
 import squareroot
 import basic_operations
+import trigonometry
 
 logger = log.setup_logger(name=f"host.{__name__}")
 
@@ -22,10 +23,9 @@ def print_intro(): # prints intro
     print("")
 
 
-
-
 def operation_assignment_module(user_input, ans): # Operation Assignment Module tries to figure out which kind of operation the input is
     logger.debug("manager received input from input loop")
+    user_input = trigonometry.calculate_trigonometric_functions(user_input) # replaces trigonometric functions with their values
     operations = {
         r"^help$": lambda: system.open_link_in_browser("https://eduzg-my.sharepoint.com/:f:/g/personal/burk_manu_2022_ksz_edu-zg_ch/EviqcQd93dJOv9hP0eUGdMkBBppDHHHLWhCKwl_MPkYbLg?e=vY0rQG"), # opens help document
         r"^sqrt\(\d+(\.\d+)?\)$": lambda: squareroot.sqare_root_calculating_module(user_input), # calculates squareroot

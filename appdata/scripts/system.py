@@ -14,7 +14,7 @@ def get_mac_adress(): # returns the mac adress [AI]
     mac_adress = ':'.join(['{:02x}'.format((uuid.getnode() >> elements) & 0xff) for elements in range(0,2*6,2)][::-1])
     return mac_adress
 
-def get_operating_system(): # retunrns the operatings system
+def get_operating_system(): # returns the operating system
     return platform.system()
 
 def file_exists(path): # checks if a file exists

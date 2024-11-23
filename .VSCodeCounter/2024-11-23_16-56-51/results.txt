@@ -1,0 +1,47 @@
+Date : 2024-11-23 16:56:51
+Directory : c:\work\Project3H\Project-One
+Total : 15 files,  524 codes, 29 comments, 150 blanks, all 703 lines
+
+Languages
++----------+------------+------------+------------+------------+------------+
+| language | files      | code       | comment    | blank      | total      |
++----------+------------+------------+------------+------------+------------+
+| Python   |         12 |        431 |         29 |        104 |        564 |
+| Markdown |          1 |         85 |          0 |         43 |        128 |
+| JSON     |          1 |          4 |          0 |          2 |          6 |
+| Batch    |          1 |          4 |          0 |          1 |          5 |
++----------+------------+------------+------------+------------+------------+
+
+Directories
++----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                       | files      | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                          |         15 |        524 |         29 |        150 |        703 |
+| . (Files)                                                                  |          4 |        211 |         13 |         71 |        295 |
+| appdata                                                                    |         11 |        313 |         16 |         79 |        408 |
+| appdata\scripts                                                            |         10 |        309 |         16 |         77 |        402 |
+| appdata\system                                                             |          1 |          4 |          0 |          2 |          6 |
+| appdata\system\scientificdata                                              |          1 |          4 |          0 |          2 |          6 |
++----------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++----------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| filename                                                                   | language | code       | comment    | blank      | total      |
++----------------------------------------------------------------------------+----------+------------+------------+------------+------------+
+| c:\work\Project3H\Project-One\ProjectOne.cmd                               | Batch    |          4 |          0 |          1 |          5 |
+| c:\work\Project3H\Project-One\README.md                                    | Markdown |         85 |          0 |         43 |        128 |
+| c:\work\Project3H\Project-One\acesscontrol.py                              | Python   |         65 |          8 |         10 |         83 |
+| c:\work\Project3H\Project-One\appdata\scripts\basic_operations.py          | Python   |         22 |          0 |          4 |         26 |
+| c:\work\Project3H\Project-One\appdata\scripts\console.py                   | Python   |         24 |          2 |          7 |         33 |
+| c:\work\Project3H\Project-One\appdata\scripts\function.py                  | Python   |         32 |          0 |          4 |         36 |
+| c:\work\Project3H\Project-One\appdata\scripts\integral.py                  | Python   |         24 |          0 |          3 |         27 |
+| c:\work\Project3H\Project-One\appdata\scripts\log.py                       | Python   |         38 |          8 |         15 |         61 |
+| c:\work\Project3H\Project-One\appdata\scripts\logarithm.py                 | Python   |         35 |          0 |          5 |         40 |
+| c:\work\Project3H\Project-One\appdata\scripts\manager.py                   | Python   |         32 |          2 |         12 |         46 |
+| c:\work\Project3H\Project-One\appdata\scripts\squareroot.py                | Python   |         16 |          0 |          3 |         19 |
+| c:\work\Project3H\Project-One\appdata\scripts\system.py                    | Python   |         74 |          0 |         19 |         93 |
+| c:\work\Project3H\Project-One\appdata\scripts\trigonometry.py              | Python   |         12 |          4 |          5 |         21 |
+| c:\work\Project3H\Project-One\appdata\system\scientificdata\Constants.json | JSON     |          4 |          0 |          2 |          6 |
+| c:\work\Project3H\Project-One\main.py                                      | Python   |         57 |          5 |         17 |         79 |
+| Total                                                                      |          |        524 |         29 |        150 |        703 |
++----------------------------------------------------------------------------+----------+------------+------------+------------+------------+
