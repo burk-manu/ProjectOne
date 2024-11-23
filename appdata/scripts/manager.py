@@ -6,7 +6,6 @@ import re
 
 # import required files
 import log
-import console
 import system
 
 import logarithm
@@ -33,7 +32,7 @@ def operation_assignment_module(user_input, ans): # Operation Assignment Module 
         r"^int\(\d+,\d+,[\w\+\-\*\/\^]+,\w\)$": lambda: integral.integral_calculating_module(user_input), # calculates an integral
         r"^f\(\w\)=[\w\+\-\*\/\^]+$": lambda: function.function_calculating_module(user_input), # calculates Zeros of functions
         r"^(log\(\d+\, \d+\)|ln\(\d+\)|log10\(\d+\))$": lambda: logarithm.logarithm_calculation_module(user_input), # calculates logarithms
-        r"^[\d\+\-\*\/\%\^]+$": lambda: basic_operations.basic_operations_module(user_input) # calculates basic operations
+        r"^[\d\+\-\*\/\%\^]+$": lambda: basic_operations.basic_operations_module(user_input), # calculates basic operations
         }
     if "ans" in str(user_input):
         user_input = str(user_input).replace("ans", str(ans))

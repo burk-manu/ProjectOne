@@ -1,4 +1,3 @@
-import logging
 import os
 import sys
 import colorama
@@ -42,7 +41,7 @@ def main():
 
         # Check system status
         system_status = access_check()
-        sys.set_int_max_str_digits(4300)
+        system.set_max_int_len(4300)
 
         # Write system status to a file
         system.document_writer("accesscontrol.config", "status", system_status)
