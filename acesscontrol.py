@@ -4,15 +4,15 @@ import uuid
 import platform
 import log
 
-# Define constants
-SYSTEM_PATHS = [
+# Define system paths
+system_paths = [
     r"appdata/log",
     r"appdata/scripts",
     r"appdata/system",
     r"appdata/system/scientificdata",
     r"appdata/system/systemdata"
 ]
-MODULES = [
+modules = [
     "sys", "os", "colorama", "time", "math", "sympy", "re", 
     "webbrowser", "datetime", "json", "shutil", "socket", "uuid", "platform",
     "math", "logging", "uuid", "keyboard", "wolframalpha"
@@ -42,7 +42,7 @@ def check_access_status():
 def check_modules():
     # Tries to import required modules and logs the result
     problems_counted = 0
-    for module in MODULES:
+    for module in modules:
         try:
             __import__(module)
             logger.info(f"Successfully imported module: {module}")
@@ -54,7 +54,7 @@ def check_modules():
 def check_directories():
     # Checks if required directories exist
     problems_counted = 0
-    for path in SYSTEM_PATHS:
+    for path in system_paths:
         full_path = os.path.join(os.getcwd(), path)
         if os.path.isdir(full_path):
             logger.info(f"Directory exists: {full_path}")
