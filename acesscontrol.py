@@ -14,7 +14,8 @@ SYSTEM_PATHS = [
 ]
 MODULES = [
     "sys", "os", "colorama", "time", "math", "sympy", "re", 
-    "webbrowser", "datetime", "json", "shutil", "socket", "uuid", "platform"
+    "webbrowser", "datetime", "json", "shutil", "socket", "uuid", "platform",
+    "math", "logging", "uuid", "keyboard", "wolframalpha"
 ]
 
 # Logger setup

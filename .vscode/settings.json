@@ -1,5 +1,8 @@
 {
     "python.analysis.extraPaths": [
         "./appdata/scripts"
+    ],
+    "cSpell.words": [
+        "wolframalpha"
     ]
 }

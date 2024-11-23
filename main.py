@@ -11,6 +11,7 @@ import manager
 import console
 import system
 import acesscontrol
+import wolframalpha_module
 
 # Setup Logger
 logger = log.setup_logger(name="host")
@@ -52,23 +53,55 @@ def main():
 
         previous_solution = None
 
+        # default module is calculator
+        module = "calculator"
+        logger.debug("Default module set to calculator")
+
         while True:
-            user_input = input(colorama.Fore.WHITE + "▷ Enter a calculation: ").strip().replace(" ", "")
-            if user_input == "console":
-                logger.debug("Console started")
-                while True:
-                    console_output = console.console(input(colorama.Fore.LIGHTMAGENTA_EX + ">>> ").strip())
-                    if console_output == "break":
-                        logger.debug("Console stopped")
-                        break
-                    elif console_output:
-                        print(colorama.Fore.LIGHTMAGENTA_EX + "▸", console_output)
+
+            answer = None
+
+            if module == "calculator":
+                printable = colorama.Fore.WHITE + "▷ Enter a calculation: "
+                logger.debug("Module set to calculator")
+            elif module == "console":
+                printable = colorama.Fore.LIGHTMAGENTA_EX + ">>> "
+                logger.debug("Module set to console")
+            elif module == "wolframalpha":
+                printable = colorama.Fore.LIGHTCYAN_EX + "▷ Enter a calculation: "
+                logger.debug("Module set to wolframalpha")
             else:
-                solution = manager.operation_assignment_module(user_input, previous_solution)
-                logger.debug("Received response from Operation Assignment Module")
-                print(colorama.Fore.GREEN + str(solution))
-                if solution != None:
-                    previous_solution = solution
+                module = "calculator"
+                logger.debug("unknown module, defaulting to calculator")
+                continue
+
+            user_input = str(input(printable)).strip().replace(" ", "")
+
+            if user_input == "calculator" or user_input == "console" or user_input == "wolframalpha":
+                module = user_input
+                logger.debug(f"Module changed to {module}")
+                continue
+            else:
+                logger.debug("Received input from user")
+            
+            if module == "calculator":
+                logger.debug("Calculator started")
+                answer = manager.operation_assignment_module(user_input, previous_solution)
+            elif module == "console":
+                logger.debug("Console started")
+                answer = console.console(user_input)
+            elif module == "wolframalpha":
+                logger.debug("WolframAlpha started")
+                answer = wolframalpha_module.wolframalpha_query(user_input)
+            else:
+                logger.debug("Unknown module")
+                module = "calculator"
+                continue
+
+            print(colorama.Fore.GREEN+ str(answer))
+
+            if answer != None:
+                previous_solution = answer
 
     except ZeroDivisionError as e:
         print(f"Unexpected error occurred: [{e}]")

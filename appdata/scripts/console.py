@@ -13,11 +13,11 @@ def console(user_input): # console function
     # define actions and expressions
     actions = {
         r"^break$": lambda: "break",
-        r"^exit$": lambda: (logger.info("Process ended with user input 'exit' in console", "console"), exit()),
-        r"^reset$": system.reset(),
-        r"^system info$": system.return_system_info(),
+        r"^exit$": lambda: (logger.info("Process ended with user input 'exit' in console"), exit()),
+        r"^reset$": lambda: system.reset(),
+        r"^system info$": lambda: system.return_system_info(),
         r"^set max int len (\d+)$": lambda: system.set_max_int_len(user_input[16:]),
-        r"^report bug$": lambda: system.open_link_in_browser("https://friendly-texture-b76.notion.site/13a28ff5262880faa57ed8a7d6581cf3?pvs=105"),
+        r"^report bug$": lambda: lambda: system.open_link_in_browser("https://friendly-texture-b76.notion.site/13a28ff5262880faa57ed8a7d6581cf3?pvs=105"),
         r"^read [\w.]+, \w+$": lambda: (system.document_reader(*user_input[5:].split(", "))),
         r"^clear$": lambda: os.system('cls')
     }

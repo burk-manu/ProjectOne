@@ -20,8 +20,8 @@ def get_operating_system(): # returns the operating system
 def file_exists(path): # checks if a file exists
     return os.path.exists(path)
     
-def document_writer(document_name, key, value, element=0): # writes data into a document
-    directory_path = os.path.join(os.getcwd(), r"appdata\system\systemdata")
+def document_writer(document_name, key, value, path=os.path.join(os.getcwd(), r"appdata\system\systemdata"), element=0): # writes data into a document
+    directory_path = path
     document_path = os.path.join(directory_path, document_name)
     if os.path.exists(document_path):
         with open (document_path, 'r') as document_json:
