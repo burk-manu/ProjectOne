@@ -2,25 +2,13 @@ import os
 import sys
 import colorama
 
-# Import necessary modules
+# adds the path to the scripts folder to the system path
 path_scripts = os.path.join(os.getcwd(), r"appdata\scripts")
 sys.path.insert(0, path_scripts)
 
-import log
-import manager
-import console
-import system
-import acesscontrol
-import wolframalpha_module
-
-# Setup Logger
-logger = log.setup_logger(name="host")
-
-system.setup_keyboard()
-
 def access_check(): # Checks system access control and handles errors.
-
     try:
+        import acesscontrol
         status = acesscontrol.accesscontrol()
         if status != "working":
             user_input = input("System errors detected. Start anyway? [YES / NO]: ").strip().lower()
@@ -28,19 +16,36 @@ def access_check(): # Checks system access control and handles errors.
                 exit()
         return status
     except Exception:
-        logger.warning("Access control failed.")
+        print("Access control failed.")
         user_input = input("Start without guarantees? [YES / NO]: ").strip().lower()
         if user_input != "yes":
             exit()
         return "not working"
 
+system_status = access_check() 
+
+# imports the necessary modules
+import log
+import manager
+import console
+import system
+import wolframalpha_module
+
+# Setup Logger
+logger = log.setup_logger(name="host")
+
+
+
+# Main function
 def main():
     try:
         logger.debug("Program started")
 
+        system.setup_keyboard()
+
         # Initial setup
-        system_status = access_check()
-        system.set_max_int_len(4300)
+        global system_status
+        manager.programme_started()
         system.document_writer("accesscontrol.config", "status", system_status)
         manager.print_intro()
         logger.debug("Program initialized")
@@ -56,6 +61,7 @@ def main():
         }
 
         while True:
+            answer = None
             printable, action = module_settings.get(module, module_settings["calculator"])
             logger.debug(f"Module set to {module}")
             

@@ -82,7 +82,8 @@ def return_system_info(): # returns system information
 
 def set_max_int_len(user_input): # changes the maximum integer length
     sys.set_int_max_str_digits(int(user_input))
-    logger.info(f"set integer max string length to {user_input} characters")
+    logger.debug(f"set integer max string length to {user_input} characters")
+    return f"set integer max string length to {user_input} characters"
 
 def open_link_in_browser(url): # opens a specific URL in the browser
     webbrowser.open(url)

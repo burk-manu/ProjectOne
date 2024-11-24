@@ -7,6 +7,7 @@ import re
 # import required files
 import log
 import system
+import prepare
 
 import logarithm
 import integral
@@ -21,6 +22,9 @@ logger = log.setup_logger(name=f"host.{__name__}")
 def print_intro(): # prints intro
     print(colorama.Fore.BLUE + " ✦   M A S T E R   M ∀ T H   ✦ ")
     print("")
+
+def programme_started():
+    prepare.prepare()
 
 
 def operation_assignment_module(user_input, ans): # Operation Assignment Module tries to figure out which kind of operation the input is

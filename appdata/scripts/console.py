@@ -12,7 +12,6 @@ logger = log.setup_logger(name=f"host.{__name__}") # setup logger
 def console(user_input): # console function
     # define actions and expressions
     actions = {
-        r"^break$": lambda: "break",
         r"^exit$": lambda: (logger.info("Process ended with user input 'exit' in console"), exit()),
         r"^reset$": lambda: system.reset(),
         r"^system info$": lambda: system.return_system_info(),
