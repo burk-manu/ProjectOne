@@ -7,9 +7,9 @@ __pycache__/
 *.so
 
 #Visual Studio Code Folder
-**/.vs
-**/.VSCodeCounter
-**/.vscode
+.vs/
+.VSCodeCounter/
+.vscode/
 
 # Distribution / packaging
 .Python
