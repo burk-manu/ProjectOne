@@ -12,12 +12,15 @@ def access_check(): # Checks system access control and handles errors.
         status = acesscontrol.accesscontrol()
         if status != "working":
             user_input = input("System errors detected. Start anyway? [YES / NO]: ").strip().lower()
+
             if user_input != "yes":
                 exit()
         return status
+    
     except Exception:
         print("Access control failed.")
         user_input = input("Start without guarantees? [YES / NO]: ").strip().lower()
+        
         if user_input != "yes":
             exit()
         return "not working"
