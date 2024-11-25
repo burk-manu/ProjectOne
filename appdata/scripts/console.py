@@ -1,6 +1,3 @@
-import os
-import json
-import sys
 import re
 
 import log
@@ -16,9 +13,9 @@ def console(user_input): # console function
         r"^reset$": lambda: system.reset(),
         r"^system info$": lambda: system.return_system_info(),
         r"^set max int len (\d+)$": lambda: system.set_max_int_len(user_input[16:]),
-        r"^report bug$": lambda: lambda: system.open_link_in_browser("https://friendly-texture-b76.notion.site/13a28ff5262880faa57ed8a7d6581cf3?pvs=105"),
-        r"^read [\w.]+, \w+$": lambda: (system.document_reader(*user_input[5:].split(", "))),
-        r"^clear$": lambda: os.system('cls')
+        r"^report bug$": lambda: system.open_link_in_browser("https://friendly-texture-b76.notion.site/13a28ff5262880faa57ed8a7d6581cf3?pvs=105"),
+        r"^read [\w.]+, [ \w]+$": lambda: (system.document_reader(*user_input[5:].split(", "))),
+        r"^clear$": lambda: system.clear_console()
     }
 
     # finds the matching key and runs the action from this key

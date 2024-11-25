@@ -1,8 +1,8 @@
 import math
 import re
 
-def calculate_trigonometric_functions(user_input):
-    # reular expressions for the triconometric functions
+def calculate_trigonometric_functions(user_input): # calculates trigonometric functions [sin, cos, tan, asin, acos, atan] [AI]
+    # regular expressions for the trigonometric functions
     pattern = r"(sin|cos|tan|asin|acos|atan)\((-?\d+(\.\d+)?)\)"
     
     # function for every regex-match
@@ -11,9 +11,9 @@ def calculate_trigonometric_functions(user_input):
         number = float(match.group(2))  # extract the number as a float
         # math function with dynamic getattr
         result = getattr(math, func)(number)
-        return str(result)  # replace match with calculated vlaue
+        return str(result)  # replace match with calculated value
     
-    # replace all triconometric strings in the input
+    # replace all trigonometric strings in the input
     while re.search(pattern, user_input):
         user_input = re.sub(pattern, replace_function, user_input)
     

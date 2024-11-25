@@ -10,7 +10,7 @@ import log
 
 logger = log.setup_logger(name=f"host.{__name__}") # setup logger
 
-def get_mac_adress(): # returns the mac adress [AI]
+def get_mac_adress(): # returns the mac address [AI]
     mac_adress = ':'.join(['{:02x}'.format((uuid.getnode() >> elements) & 0xff) for elements in range(0,2*6,2)][::-1])
     return mac_adress
 
@@ -48,8 +48,11 @@ def document_reader(document_name, key, element=0): # reads information from a d
             if isinstance(document, list):
                 document = document[element]
             if isinstance(document, dict):
-                value = document[key]
-                return value
+                try:
+                    value = document[key]
+                    return value
+                except KeyError:
+                    return f"couldn't find key {key} in document {document_name}"
     else:
         return f"couldn't find File {document_name} in 'appdata\system\systemdata'"
 
@@ -87,8 +90,18 @@ def set_max_int_len(user_input): # changes the maximum integer length
 
 def open_link_in_browser(url): # opens a specific URL in the browser
     webbrowser.open(url)
-    logger.info(f"opening website with url: {url}")
+    logger.debug(f"opening website with url: {url}")
     return "opening website . . . "
+
+def define_color(r, g, b): # defines a color [AI]
+    color = "\033[38;2;" + str(r) + ";" + str(g) + ";" + str(b) + "m"
+    return color
+
+def color_reset(): # resets the color [AI]
+    return "\033[0m"
+
+def clear_console(): # clears the console
+    os.system('cls' if os.name == 'nt' else 'clear')
 
 def setup_keyboard(): # sets up the shortcuts for the program
     keyboard.add_hotkey('f1', lambda: open_link_in_browser("https://eduzg-my.sharepoint.com/:f:/g/personal/burk_manu_2022_ksz_edu-zg_ch/EviqcQd93dJOv9hP0eUGdMkBBppDHHHLWhCKwl_MPkYbLg?e=vY0rQG"))

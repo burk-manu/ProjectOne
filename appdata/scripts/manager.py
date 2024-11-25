@@ -1,6 +1,4 @@
 # import required plug-ins
-import sympy as sp
-import colorama
 import re
 
 
@@ -20,8 +18,23 @@ logger = log.setup_logger(name=f"host.{__name__}")
 
 
 def print_intro(): # prints intro
-    print(colorama.Fore.BLUE + " ✦   M A S T E R   M ∀ T H   ✦ ")
-    print("")
+    reset = system.color_reset()
+    orange = system.define_color(255, 165, 0)
+    blue = system.define_color(0, 0, 255)
+    white = system.define_color(255, 255, 255)
+
+    texts = {
+        ">>>  W E L C O M E    T O    P R O J E C T    O N E  <<<": orange,
+        "including": white,
+        "✦   M A S T E R   M ∀ T H   ✦": blue,
+        "✦   W O L F R A M   A L P H A   ✦": blue,
+        "✦   C O N S O L E   ✦": blue
+    }
+
+    system.clear_console()
+
+    for text, color in texts.items():
+        print(color + text.center(100, " ") + reset)
 
 def programme_started():
     prepare.prepare()
@@ -32,11 +45,11 @@ def operation_assignment_module(user_input, ans): # Operation Assignment Module 
     user_input = trigonometry.calculate_trigonometric_functions(user_input) # replaces trigonometric functions with their values
     operations = {
         r"^help$": lambda: system.open_link_in_browser("https://eduzg-my.sharepoint.com/:f:/g/personal/burk_manu_2022_ksz_edu-zg_ch/EviqcQd93dJOv9hP0eUGdMkBBppDHHHLWhCKwl_MPkYbLg?e=vY0rQG"), # opens help document
-        r"^sqrt\(\d+(\.\d+)?\)$": lambda: squareroot.sqare_root_calculating_module(user_input), # calculates squareroot
+        r"^sqrt\(\d+(\.\d+)?\)$": lambda: squareroot.sqare_root_calculating_module(user_input), # calculates square root
         r"^int\(\d+,\d+,[\w\+\-\*\/\^]+,\w\)$": lambda: integral.integral_calculating_module(user_input), # calculates an integral
         r"^f\(\w\)=[\w\+\-\*\/\^]+$": lambda: function.function_calculating_module(user_input), # calculates Zeros of functions
         r"^(log\(\d+\, \d+\)|ln\(\d+\)|log10\(\d+\))$": lambda: logarithm.logarithm_calculation_module(user_input), # calculates logarithms
-        r"^[\d\+\-\*\/\%\^]+$": lambda: basic_operations.basic_operations_module(user_input), # calculates basic operations
+        r"^[\d(\.\d+)?\+\-\*\/\%\^]+$": lambda: basic_operations.basic_operations_module(user_input), # calculates basic operations
         }
     if "ans" in str(user_input):
         user_input = str(user_input).replace("ans", str(ans))

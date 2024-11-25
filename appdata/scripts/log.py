@@ -3,7 +3,7 @@ import logging
 import logging.handlers
 
 
-def setup_logger(name="host", log_dir="appdata/log", max_bytes=1024**2, backup_count=4): # function to setup loggers
+def setup_logger(name="host", log_dir="appdata/log", max_bytes=1024**2, backup_count=4): # function to setup loggers [AI]
     
     # create logfile name and path
     logfile_name = f"Log-{name}.log"
@@ -24,7 +24,7 @@ def setup_logger(name="host", log_dir="appdata/log", max_bytes=1024**2, backup_c
         file_handler = logging.handlers.RotatingFileHandler(logfile_path, maxBytes=max_bytes, backupCount=1)
 
     file_formatter = logging.Formatter(
-        "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+        "%(asctime)s - %(filename)s - %(lineno)d - %(name)s - %(levelname)s - %(message)s"
     )
     file_handler.setFormatter(file_formatter)
     file_handler.setLevel(logging.DEBUG)

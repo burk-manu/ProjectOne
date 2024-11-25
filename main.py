@@ -55,9 +55,9 @@ def main():
         logger.debug("Default module set to calculator")
 
         module_settings = {
-            "calculator": (colorama.Fore.WHITE + "▷ Enter a calculation: ", manager.operation_assignment_module),
+            "calculator": (colorama.Fore.WHITE + " ▷ Enter a calculation: ", manager.operation_assignment_module),
             "console": (colorama.Fore.LIGHTMAGENTA_EX + ">>> ", console.console),
-            "wolframalpha": (colorama.Fore.LIGHTCYAN_EX + "▷ Enter a calculation: ", wolframalpha_module.wolframalpha_query)
+            "wolframalpha": (colorama.Fore.LIGHTCYAN_EX + " ▷ Enter a calculation: ", wolframalpha_module.wolframalpha_query)
         }
 
         while True:
@@ -65,14 +65,17 @@ def main():
             printable, action = module_settings.get(module, module_settings["calculator"])
             logger.debug(f"Module set to {module}")
             
-            user_input = input(printable).strip().replace(" ", "")
+            user_input = input(printable).strip()
+
+            logger.debug(f"User input: {user_input}")
+
             if user_input in module_settings:
                 module = user_input
                 logger.debug(f"Module changed to {module}")
                 continue
 
             try:
-                answer = action(user_input) if module != "calculator" else action(user_input, previous_solution)
+                answer = action(user_input) if module != "calculator" else action(user_input.replace(" ",""), previous_solution)
                 if answer is not None:
                     print(colorama.Fore.GREEN + str(answer))
                     previous_solution = answer
