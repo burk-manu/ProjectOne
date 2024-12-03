@@ -8,8 +8,8 @@ sys.path.insert(0, path_scripts)
 
 def access_check(): # Checks system access control and handles errors.
     try:
-        import acesscontrol
-        status = acesscontrol.accesscontrol()
+        import accesscontrol
+        status = accesscontrol.accesscontrol()
         if status != "working":
             user_input = input("System errors detected. Start anyway? [YES / NO]: ").strip().lower()
 
