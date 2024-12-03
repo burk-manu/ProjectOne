@@ -6,6 +6,7 @@ import log
 logger = log.setup_logger(name=f"host.{__name__}")
 
 def basic_operations_module(user_input): # function to calculate basic operations / terms
+    logger.debug("Basic Operations Module received input from Operation Assignment Module") # logs the input
     try:
         solution = user_input.replace("^","**") # changes input into python language / syntax
         solution = sp.sympify(solution).evalf() # transforms solution into an numeric solutions
@@ -16,6 +17,7 @@ def basic_operations_module(user_input): # function to calculate basic operation
                 solution = float(solution) # converts solution to an integer
             except Exception:
                 pass
+        logger.debug(f"Basic Operations Module returned {solution}") # returns the solution
         return solution
     except ZeroDivisionError:
         logger.info("Division by Zero is not defined!") # returns an division by zero error

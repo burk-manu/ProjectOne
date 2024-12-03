@@ -41,8 +41,9 @@ def programme_started():
 
 
 def operation_assignment_module(user_input, ans): # Operation Assignment Module tries to figure out which kind of operation the input is
-    logger.debug("manager received input from input loop")
+    logger.debug(f"manager received input from input loop | input: {user_input} ") # logs the input
     user_input = trigonometry.calculate_trigonometric_functions(user_input) # replaces trigonometric functions with their values
+    logger.debug(f"manager received input from trigonometry module | input: {user_input} ") # logs the input
     operations = {
         r"^help$": lambda: system.open_link_in_browser("https://eduzg-my.sharepoint.com/:f:/g/personal/burk_manu_2022_ksz_edu-zg_ch/EviqcQd93dJOv9hP0eUGdMkBBppDHHHLWhCKwl_MPkYbLg?e=vY0rQG"), # opens help document
         r"^sqrt\(\d+(\.\d+)?\)$": lambda: squareroot.sqare_root_calculating_module(user_input), # calculates square root
@@ -57,6 +58,7 @@ def operation_assignment_module(user_input, ans): # Operation Assignment Module 
     for key, action in operations.items():
         if re.match(key, user_input):
             logger.debug("manager is sending back the result(s)")
+            logger.debug(f"module: {action}")
             return action()
     
     logger.info("Invalid input: The operation could not be executed") # returns an error if the input has an invalid syntax
