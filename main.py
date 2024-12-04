@@ -60,7 +60,8 @@ def main():
         module_settings = {
             "calculator": (colorama.Fore.WHITE + " ▷ Enter a calculation: ", manager.operation_assignment_module),
             "console": (colorama.Fore.LIGHTMAGENTA_EX + ">>> ", console.console),
-            "wolframalpha": (colorama.Fore.LIGHTCYAN_EX + " ▷ Enter a calculation: ", wolframalpha_module.wolframalpha_query)
+            "wolframalpha": (colorama.Fore.LIGHTCYAN_EX + " ▷ Enter a calculation: ", wolframalpha_module.wolframalpha_query),
+            "CORA": (colorama.Fore.LIGHTYELLOW_EX + " ▷ Enter a question: ", wolframalpha_module.wolframalpha_conversational_query)
         }
 
         while True:

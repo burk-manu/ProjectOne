@@ -8,7 +8,7 @@ def calculate_trigonometric_functions(user_input): # calculates trigonometric fu
     # function for every regex-match
     def replace_function(match):
         func = match.group(1)  # name of the function (sin, cos, ...)
-        number = float(match.group(2))  # extract the number as a float
+        number = math.radians(float(match.group(2)))  # extract the number as a float
         # math function with dynamic getattr
         result = getattr(math, func)(number)
         return str(result)  # replace match with calculated value

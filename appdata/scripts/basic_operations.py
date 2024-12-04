@@ -12,7 +12,7 @@ def basic_operations_module(user_input): # function to calculate basic operation
         solution = sp.sympify(solution).evalf() # transforms solution into an numeric solutions
         if str(solution) == "zoo": # if answer is equal to 'zoo' which stands for complex infinity it returns an error
             logger.info("Division by Zero is not defined!") # error
-        else: # if not it trys if the answer is an integer
+        else: # if the solution is a number
             try:
                 solution = float(solution) # converts solution to an integer
             except Exception:
@@ -22,6 +22,6 @@ def basic_operations_module(user_input): # function to calculate basic operation
     except ZeroDivisionError:
         logger.info("Division by Zero is not defined!") # returns an division by zero error
     except OverflowError:
-        logger.info("Overflow: The result is too big!") # returned an Overflow error
+        logger.info("Overflow: The result is too big!") # returns an Overflow error
     except ValueError:
         logger.info("Invalid input: The operation could not be executed") # returns an unexpected error

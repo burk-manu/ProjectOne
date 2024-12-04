@@ -46,20 +46,19 @@ def operation_assignment_module(user_input, ans): # Operation Assignment Module 
     logger.debug(f"manager received input from trigonometry module | input: {user_input} ") # logs the input
     operations = {
         r"^help$": lambda: system.open_link_in_browser("https://eduzg-my.sharepoint.com/:f:/g/personal/burk_manu_2022_ksz_edu-zg_ch/EviqcQd93dJOv9hP0eUGdMkBBppDHHHLWhCKwl_MPkYbLg?e=vY0rQG"), # opens help document
-        r"^sqrt\(\d+(\.\d+)?\)$": lambda: squareroot.sqare_root_calculating_module(user_input), # calculates square root
+        r"^sqrt\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\)$": lambda: squareroot.square_root_calculating_module(user_input), # calculates square root
         r"^int\(\d+,\d+,[\w\+\-\*\/\^]+,\w\)$": lambda: integral.integral_calculating_module(user_input), # calculates an integral
         r"^f\(\w\)=[\w\+\-\*\/\^]+$": lambda: function.function_calculating_module(user_input), # calculates Zeros of functions
-        r"^(log\(\d+\, \d+\)|ln\(\d+\)|log10\(\d+\))$": lambda: logarithm.logarithm_calculation_module(user_input), # calculates logarithms
-        r"^[\d(\.\d+)?\+\-\*\/\%\^]+$": lambda: basic_operations.basic_operations_module(user_input), # calculates basic operations
+        r"^(log\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\)|ln\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\)|log10\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\))$": lambda: logarithm.logarithm_calculation_module(user_input), # calculates logarithms
+        r"^[+-]?\d+(\.\d+)?([Ee][+-]?\d+)?[\+\-\*\/\%\^]+$": lambda: basic_operations.basic_operations_module(user_input), # calculates basic operations
         }
     if "ans" in str(user_input):
         user_input = str(user_input).replace("ans", str(ans))
 
-    for key, action in operations.items():
-        if re.match(key, user_input):
+    for key, action in operations.items(): # iterates through the operations
+        if re.match(key, user_input): # checks if the input follows the syntax of the operation
             logger.debug("manager is sending back the result(s)")
-            logger.debug(f"module: {action}")
-            return action()
+            return action() # returns the result of the operation
     
-    logger.info("Invalid input: The operation could not be executed") # returns an error if the input has an invalid syntax
-    return "Invalid input: The operation could not be executed"
+    logger.debug("Invalid input: The operation could not be executed") # logs an error
+    return "Invalid input: The operation could not be executed" # returns an error if the input has an invalid syntax
