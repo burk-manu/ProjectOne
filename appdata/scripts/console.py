@@ -7,6 +7,7 @@ logger = log.setup_logger(name=f"host.{__name__}") # setup logger
 
 
 def console(user_input): # console function
+    logger.debug("Console started")
     # define actions and expressions
     actions = {
         r"^exit$": lambda: (logger.info("Process ended with user input 'exit' in console"), exit()),

@@ -3,6 +3,7 @@ import json
 import uuid
 import platform
 import log
+import time
 
 # Define system paths
 system_paths = [
@@ -34,6 +35,7 @@ def check_access_status():
             access_data = json.load(access_file)
         if (access_data.get('macadress') == get_mac_address() and
                 access_data.get('status') == "working"):
+            logger.debug("Access status check successful")
             return "working"
     except Exception as e:
         logger.error(f"Access status check failed: {e}")
@@ -80,5 +82,7 @@ def accesscontrol():
     problems_counted += check_modules()
     problems_counted += check_directories()
     check_os()
+
+    time.sleep(3) # wait for 3 seconds
 
     return "working" if problems_counted == 0 else "not working"

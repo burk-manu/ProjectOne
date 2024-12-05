@@ -8,7 +8,11 @@ import log
 logger = log.setup_logger(name=f"host.{__name__}") # setup logger
 
 def logarithm_calculation_module(user_input):
+
+    logger.debug("Logarithm calculation module started")
+
     if user_input.startswith("log10(") and user_input.endswith(")"):
+        logger.debug("Logarithm calculation module: logarithm with base 10")
         number = sp.sympify(user_input[6:-1])  # extracts the number from the input
         logarithm = sp.log(number, 10)  # calculates the logarithm to base 10
         if str(logarithm.evalf()) == "zoo":
@@ -17,6 +21,7 @@ def logarithm_calculation_module(user_input):
             return logarithm.evalf()
     
     elif user_input.startswith("ln(") and user_input.endswith(")"):
+        logger.debug("Logarithm calculation module: natural logarithm")
         number = sp.sympify(user_input[3:-1])  # extracts the number from the input
         logarithm = sp.log(number)  # calculates the natural logarithm
         if str(logarithm.evalf()) == "zoo":
@@ -25,6 +30,7 @@ def logarithm_calculation_module(user_input):
             return logarithm.evalf()
     
     elif user_input.startswith("log(") and user_input.endswith(")"):
+        logger.debug("Logarithm calculation module: logarithm with custom base")
         try:
             number, base = user_input[4:-1].split(",")
             number = sp.sympify(number.strip())  # delete whitespaces and sympify the number

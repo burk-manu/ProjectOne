@@ -9,6 +9,7 @@ import log
 logger = log.setup_logger(name=f"host.{__name__}") # setup logger
 
 def integral_calculating_module(user_input):
+    logger.debug("Integral calculation module started")
     try:
         if re.match(r"int\(\d+,\d+,[\w\+\-\*\/\^ ]+,\w\)", user_input): # pattern for integral regex
             integral = user_input[4:-1]

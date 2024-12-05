@@ -7,6 +7,7 @@ import log
 logger = log.setup_logger(name=f"host.{__name__}") # setup logger
 
 def function_calculating_module(user_input): # calculates Zeros of a function, derivatives and antiderivatives
+    logger.debug("Function calculation module started")
     if re.match(r"^f\(\w\)=[\w\+\-\*\/\^]+$",user_input):
         solve_for = sp.symbols(str(user_input[2]))
         cut = user_input.index("=")+1
@@ -29,7 +30,7 @@ def function_calculating_module(user_input): # calculates Zeros of a function, d
             F({solve_for}) = 				{integral}
             f'({solve_for}) = 				{derivation1}
             f''({solve_for}) = 				{derivation2}
-            f'''({solve_for}) = 				{derivation3}"""  # returnd the solution
+            f'''({solve_for}) = 				{derivation3}"""  # returned the solution
         except sp.SympifyError:
             logger.info("Invalid input: The zeros of the function can not be calculated")
     else:

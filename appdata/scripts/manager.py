@@ -35,6 +35,8 @@ def print_intro(): # prints intro
 
     for text, color in texts.items():
         print(color + text.center(100, " ") + reset)
+    
+    logger.debug("Intro printed")
 
 def programme_started():
     prepare.prepare()
@@ -47,18 +49,22 @@ def operation_assignment_module(user_input, ans): # Operation Assignment Module 
     operations = {
         r"^help$": lambda: system.open_link_in_browser("https://eduzg-my.sharepoint.com/:f:/g/personal/burk_manu_2022_ksz_edu-zg_ch/EviqcQd93dJOv9hP0eUGdMkBBppDHHHLWhCKwl_MPkYbLg?e=vY0rQG"), # opens help document
         r"^sqrt\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\)$": lambda: squareroot.square_root_calculating_module(user_input), # calculates square root
-        r"^int\(\d+,\d+,[\w\+\-\*\/\^]+,\w\)$": lambda: integral.integral_calculating_module(user_input), # calculates an integral
+        r"^int\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?,[+-]?\d+(\.\d+)?([Ee][+-]?\d+)?,([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?|[\w\+\-\*\/\%\^])+,\w\)$": lambda: integral.integral_calculating_module(user_input), # calculates an integral
         r"^f\(\w\)=[\w\+\-\*\/\^]+$": lambda: function.function_calculating_module(user_input), # calculates Zeros of functions
         r"^(log\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\)|ln\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\)|log10\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\))$": lambda: logarithm.logarithm_calculation_module(user_input), # calculates logarithms
-        r"^[+-]?\d+(\.\d+)?([Ee][+-]?\d+)?[\+\-\*\/\%\^]+$": lambda: basic_operations.basic_operations_module(user_input), # calculates basic operations
+        r"^([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?|[\+\-\*\/\%\^])+$": lambda: basic_operations.basic_operations_module(user_input), # calculates basic operations
         }
     if "ans" in str(user_input):
         user_input = str(user_input).replace("ans", str(ans))
 
     for key, action in operations.items(): # iterates through the operations
         if re.match(key, user_input): # checks if the input follows the syntax of the operation
-            logger.debug("manager is sending back the result(s)")
-            return action() # returns the result of the operation
+
+            solution = action()
+
+            logger.debug(f"Operation Assignment Module receifed the solution: {solution}") # logs the solution
+        
+            return solution # returns the result of the operation
     
     logger.debug("Invalid input: The operation could not be executed") # logs an error
     return "Invalid input: The operation could not be executed" # returns an error if the input has an invalid syntax
