@@ -16,11 +16,11 @@ def integral_calculating_module(user_input):
             begin_value, end_value, function, solve_for = integral.split(",")
             begin_value, end_value = float(begin_value), float(end_value)
             solve_for = sp.symbols(solve_for)
-            function = function.replace("^", "**") # makes sure that python understands the inputstructure
-            function = str(function) # wandelt die Funtkion in einen String um
+            function = function.replace("^", "**") # makes sure that python understands the input structure
+            function = str(function) # converts into string
             function = re.sub(rf"(\d){solve_for}", rf"\1*{solve_for}", function) # adds missing multiplications signs
             function = sp.sympify(function) # converts into 'sympy language'
-            integral = sp.integrate(function, (solve_for, begin_value, end_value)) # calculates intergral
+            integral = sp.integrate(function, (solve_for, begin_value, end_value)) # calculates integral
             return integral
         else:
             logger.info("Invalid Input", "Integral Calculating Module", "501")

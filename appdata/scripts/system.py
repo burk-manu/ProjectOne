@@ -72,7 +72,7 @@ def remove_file(path): # removes a file
 def reset(): # resets the system
     document_writer("accesscontrol.config", "status", None)
     document_writer("settings.config", "max_str_int_conversion", 4300)
-    logger.info("system resetted")
+    logger.info("System reset")
     exit()
 
 def return_system_info(): # returns system information

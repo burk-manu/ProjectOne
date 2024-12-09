@@ -53,20 +53,19 @@ def main():
         manager.print_intro()
         logger.debug("Program initialized")
 
-        module = "calculator"
+        module = "master math"
         previous_solution = None
-        logger.debug("Default module set to calculator")
+        logger.debug("Default module set to master math")
 
         module_settings = {
-            "calculator": (colorama.Fore.WHITE + " ▷ Enter a calculation: ", manager.operation_assignment_module),
+            "master math": (colorama.Fore.WHITE + " ▷ Enter a calculation: ", manager.operation_assignment_module),
             "console": (colorama.Fore.LIGHTMAGENTA_EX + ">>> ", console.console),
-            "wolframalpha": (colorama.Fore.LIGHTCYAN_EX + " ▷ Enter a calculation: ", wolframalpha_module.wolframalpha_query),
-            "CORA": (colorama.Fore.LIGHTYELLOW_EX + " ▷ Enter a question: ", wolframalpha_module.wolframalpha_conversational_query)
+            "wolfram alpha": (colorama.Fore.LIGHTCYAN_EX + " ▷ Enter a calculation: ", wolframalpha_module.wolframalpha_query)
         }
 
         while True:
             answer = None
-            printable, action = module_settings.get(module, module_settings["calculator"])
+            printable, action = module_settings.get(module, module_settings["master math"])
             logger.debug(f"Module set to {module}")
             
             user_input = input(printable).strip()
@@ -79,7 +78,7 @@ def main():
                 continue
 
             try:
-                answer = action(user_input) if module != "calculator" else action(user_input.replace(" ",""), previous_solution)
+                answer = action(user_input) if module != "master math" else action(user_input.replace(" ",""), previous_solution)
                 if answer is not None:
                     print(colorama.Fore.GREEN + str(answer))
                     previous_solution = answer

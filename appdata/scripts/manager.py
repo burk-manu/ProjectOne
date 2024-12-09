@@ -62,7 +62,7 @@ def operation_assignment_module(user_input, ans): # Operation Assignment Module 
 
             solution = action()
 
-            logger.debug(f"Operation Assignment Module receifed the solution: {solution}") # logs the solution
+            logger.debug(f"Operation Assignment Module received the solution: {solution}") # logs the solution
         
             return solution # returns the result of the operation
     

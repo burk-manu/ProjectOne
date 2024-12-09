@@ -18,17 +18,3 @@ def wolframalpha_query(calculation): # queries wolframalpha for a calculation
     logger.debug("Query successful")
 
     return next(result.results).text
-
-def wolframalpha_conversational_query(calculation): # queries wolframalpha for an answer
-    logger.debug("Querying WolframAlpha with LLM API")
-
-    api_key = system.document_reader("keys.config", "wolframalpha_conversational")
-    logger.debug(f"API key: {api_key}")
-    client = wolframalpha.Client(api_key)
-
-    logger.debug(f"Client created with API key: {client.app_id}")
-
-    result = client.query(calculation)
-    logger.debug("Query successful")
-
-    return next(result.results).text
