@@ -11,6 +11,9 @@ __pycache__/
 .VSCodeCounter/
 .vscode/
 
+# Plug Ins
+*.dio
+
 # Distribution / packaging
 .Python
 build/
