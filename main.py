@@ -4,6 +4,7 @@ import colorama
 
 # adds the path to the scripts folder to the system path
 path_scripts = os.path.join(os.getcwd(), r"appdata\scripts")
+print(path_scripts)
 sys.path.insert(0, path_scripts)
 
 def access_check(): # Checks system access control and handles errors.
