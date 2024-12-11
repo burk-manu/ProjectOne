@@ -61,7 +61,7 @@ def main():
         module_settings = {
             "master math": (colorama.Fore.WHITE + " ▷ Enter a calculation: ", manager.operation_assignment_module),
             "console": (colorama.Fore.LIGHTMAGENTA_EX + ">>> ", console.console),
-            "wolfram alpha": (colorama.Fore.LIGHTCYAN_EX + " ▷ Enter a calculation: ", wolframalpha_module.wolframalpha_query)
+            "wolfram alpha": (colorama.Fore.LIGHTCYAN_EX + " ▶ Enter a calculation: ", wolframalpha_module.wolframalpha_query)
         }
 
         while True:
@@ -79,9 +79,9 @@ def main():
                 continue
 
             try:
-                answer = action(user_input) if module != "master math" else action(user_input.replace(" ",""), previous_solution)
+                answer = action(user_input) if module != "master math" else action(user_input.replace(" ",""), previous_solution) # if the module is not master math, the previous solution is passed as an argument
                 if answer is not None:
-                    print(colorama.Fore.GREEN + str(answer))
+                    print(colorama.Fore.GREEN + " ◈ " + str(answer)) # prints the answer in green
                     previous_solution = answer
             except Exception as e:
                 logger.error(f"Error in {module}: {e}")

@@ -11,7 +11,7 @@ def basic_operations_module(user_input): # function to calculate basic operation
         solution = user_input.replace("^","**") # changes input into python language / syntax
         solution = sp.sympify(solution).evalf() # transforms solution into an numeric solutions
         if str(solution) == "zoo": # if answer is equal to 'zoo' which stands for complex infinity it returns an error
-            logger.info("Division by Zero is not defined!") # error
+            return "diverges towards complex infinity"
         else: # if the solution is a number
             try:
                 solution = float(solution) # converts solution to an integer

@@ -1,6 +1,6 @@
 # Project One
 
-![picture](programme.main/appdata/icons/ProjectOneIcon.png)
+![picture](appdata/icons/ProjectOneIcon.png)
 
 ---
 
@@ -71,7 +71,7 @@ If you are not sure whether your system has the necessary requirements, you can 
   - shutil
 
 ## Project Structure
-![image](/programme.main/appdata/icons/architecture.png)
+![image](appdata/icons/architecture.png)
 
 ## Contributing
 As this project is for educational purposes only and is part of a school project, no contributions are requested or expected. The project is not intended for public or collaborative development outside the scope of the school project. Therefore, external contributions are **not desired** at this time.
