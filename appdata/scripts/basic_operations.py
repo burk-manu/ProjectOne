@@ -1,4 +1,3 @@
-import math
 import sympy as sp
 
 import log

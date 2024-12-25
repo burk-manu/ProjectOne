@@ -1,6 +1,4 @@
-import math
 import sympy as sp
-import os
 import re
 
 import manager
@@ -23,6 +21,6 @@ def integral_calculating_module(user_input):
             integral = sp.integrate(function, (solve_for, begin_value, end_value)) # calculates integral
             return integral
         else:
-            logger.info("Invalid Input", "Integral Calculating Module", "501")
+            logger.info("Invalid Input")
     except ValueError:
-        logger.info("Invalid Input", "Integral Calculating Module", "502")
+        logger.info("Invalid Input")

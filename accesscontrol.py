@@ -2,8 +2,8 @@ import os
 import json
 import uuid
 import platform
-import log
 import time
+import log
 
 # Define system paths
 system_paths = [
@@ -83,6 +83,6 @@ def accesscontrol():
     problems_counted += check_directories()
     check_os()
 
-    time.sleep(3) # wait for 3 seconds
-
+    time.sleep(3)
+    
     return "working" if problems_counted == 0 else "not working"

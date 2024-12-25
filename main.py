@@ -2,12 +2,19 @@ import os
 import sys
 import colorama
 
+
 # adds the path to the scripts folder to the system path
 path_scripts = os.path.join(os.getcwd(), r"appdata\scripts")
 print(path_scripts)
-sys.path.insert(0, path_scripts)
+sys.path.insert(0, path_scripts) # inserts the path to the scripts folder to the system path
 
-def access_check(): # Checks system access control and handles errors.
+
+# Setup Logger
+import log
+logger = log.setup_logger(name="host")
+
+
+def access_check(): # Checks system access control and handles errors
     try:
         import accesscontrol
         status = accesscontrol.accesscontrol()
@@ -29,15 +36,10 @@ def access_check(): # Checks system access control and handles errors.
 system_status = access_check() 
 
 # imports the necessary modules
-import log
 import manager
 import console
 import system
 import wolframalpha_module
-
-# Setup Logger
-logger = log.setup_logger(name="host")
-
 
 
 # Main function
@@ -66,20 +68,18 @@ def main():
 
         while True:
             answer = None
-            printable, action = module_settings.get(module, module_settings["master math"])
+            printable, action = module_settings.get(module, module_settings["master math"]) # gets the module settings for the current module or sets it to master math if the module is not found
             logger.debug(f"Module set to {module}")
-            
             user_input = input(printable).strip()
 
             logger.debug(f"User input: {user_input}")
 
             if user_input in module_settings:
                 module = user_input
-                logger.debug(f"Module changed to {module}")
                 continue
 
             try:
-                answer = action(user_input) if module != "master math" else action(user_input.replace(" ",""), previous_solution) # if the module is not master math, the previous solution is passed as an argument
+                answer = action(user_input) if module != "master math" else action(user_input.replace(" ",""), previous_solution) # if the module is master math, the previous solution is passed as an argument
                 if answer is not None:
                     print(colorama.Fore.GREEN + " ◈ " + str(answer)) # prints the answer in green
                     previous_solution = answer
