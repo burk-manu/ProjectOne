@@ -18,6 +18,7 @@ logger = log.setup_logger(name=f"host.{__name__}")
 
 
 def print_intro(): # prints intro
+    # defines colors
     reset = system.color_reset()
     orange = system.define_color(255, 165, 0)
     blue = system.define_color(0, 0, 255)
@@ -44,8 +45,11 @@ def programme_started():
 
 def operation_assignment_module(user_input, ans): # Operation Assignment Module tries to figure out which kind of operation the input is
     logger.debug(f"manager received input from input loop | input: {user_input} ") # logs the input
-    user_input = trigonometry.calculate_trigonometric_functions(user_input) # replaces trigonometric functions with their values
-    logger.debug(f"manager received input from trigonometry module | input: {user_input} ") # logs the input
+
+    if re.search(r"(sin|cos|tan|cot|sec|csc)", user_input):
+        user_input = trigonometry.calculate_trigonometric_functions(user_input) # replaces trigonometric functions with their values
+        logger.debug(f"manager received input from trigonometry module | input: {user_input} ") # logs the input
+
     operations = {
         r"^help$": lambda: system.open_link_in_browser("https://eduzg-my.sharepoint.com/:f:/g/personal/burk_manu_2022_ksz_edu-zg_ch/EviqcQd93dJOv9hP0eUGdMkBBppDHHHLWhCKwl_MPkYbLg?e=vY0rQG"), # opens help document
         r"^sqrt\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\)$": lambda: squareroot.square_root_calculating_module(user_input), # calculates square root
@@ -54,6 +58,7 @@ def operation_assignment_module(user_input, ans): # Operation Assignment Module 
         r"^(log\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\)|ln\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\)|log10\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\))$": lambda: logarithm.logarithm_calculation_module(user_input), # calculates logarithms
         r"^([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?|[\w\+\-\*\/\%\^])+$": lambda: basic_operations.basic_operations_module(user_input), # calculates basic operations
         }
+    
     if "ans" in str(user_input):
         user_input = str(user_input).replace("ans", str(ans))
 

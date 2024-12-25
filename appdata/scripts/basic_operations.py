@@ -9,11 +9,11 @@ def basic_operations_module(user_input): # function to calculate basic operation
     try:
         solution = user_input.replace("^","**") # changes input into python language / syntax
         solution = sp.sympify(solution).evalf() # transforms solution into an numeric solutions
-        if str(solution) == "zoo": # if answer is equal to 'zoo' which stands for complex infinity it returns an error
+        if str(solution) == "zoo": # zoo stands for complex infinity
             return "diverges towards complex infinity"
         else: # if the solution is a number
             try:
-                solution = float(solution) # converts solution to an integer
+                solution = float(solution) # converts solution to a float
             except Exception:
                 pass
         logger.debug(f"Basic Operations Module returned {solution}") # returns the solution
