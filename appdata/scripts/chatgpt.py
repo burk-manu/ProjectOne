@@ -10,3 +10,5 @@ response = openai.Completion.create(
     max_tokens=100
 )
 print(response.choices[0].text.strip())
+
+# The above code is a simple example of how to use the OpenAI API to generate text.
