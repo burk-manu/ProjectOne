@@ -82,7 +82,7 @@ Please feel free to view or use the project for personal or educational purposes
 If you have any questions about how to use the software, or information about troubleshooting, please contact the developer at the following email address.
 
 **name**: Manuel Bürki  
-**e-mail**: burk.manu.2022@ksz.edu-zg.ch
+**e-mail**: Project.One@gmx.ch
 
 
 <footer>

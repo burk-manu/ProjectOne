@@ -36,7 +36,7 @@ This Code of Conduct applies within all project spaces (such as GitHub repositor
 If you experience or witness unacceptable behavior, or have any other concerns, please report it by contacting:
 
 **Manuel Bürki**  
-**Email**: [burk.manu.2022@ksz.edu-zg.ch](mailto:burk.manu.2022@ksz.edu-zg.ch)
+**Email**: [Project.One@gmx.ch](mailto:Project.One@gmx.ch)
 
 All reports will be handled confidentially. The project maintainers will investigate the issue and take appropriate action.
 

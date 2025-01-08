@@ -88,7 +88,7 @@ def main():
 
     except Exception as e:
         print(f"Unexpected error occurred: [{e}]")
-        print("Contact: burk.manu.2022@ksz.edu-zg.ch for support.")
+        print("Contact: Project.One@gmx.ch for support.")
 
 
 
