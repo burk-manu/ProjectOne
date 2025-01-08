@@ -56,8 +56,15 @@ def document_reader(document_name, key, element=0): # reads information from a d
     else:
         return f"couldn't find File {document_name} in 'appdata\system\systemdata'"
 
+def open_document(document_name, prepath=os.getcwd(), path=r"appdata\system\doc")): # opens a document
+    if system.file_exists(os.path.join(prepath, path, document_name)):
+        os.startfile(os.path.join(path, document_name))
+        logger.debug(f"Document {document_name} opened")
+    else:
+        logger.error(f"Document {document_name} not found in {path}")
+
 def create_file(name, path=(os.path.join(os.getcwd(), r"appdata\system\systemdata"))): # creates a file
-    if os.path.exists(os.path.join(path, name), 'w'):
+    if file_exists(os.path.join(path, name)):
         return "File already exists"
     with open(os.path.join(path, name), 'w'):
         return f"File {name} successfully created"
@@ -66,8 +73,9 @@ def create_file(name, path=(os.path.join(os.getcwd(), r"appdata\system\systemdat
 def remove_file(path): # removes a file
     if os.path.exists(path):
         os.remove(path)
+        logger.warning(f"File {path} removed")
     else:
-        return "File/directory {path} doesn't exist"
+        logger.error(f"File {path} not found")
     
 def reset(): # resets the system
     document_writer("accesscontrol.config", "status", None)
@@ -76,13 +84,20 @@ def reset(): # resets the system
     exit()
 
 def return_system_info(): # returns system information
+    logger.debug("returning system information")
     path = os.getcwd()  # path of the 'Main.py' script
-    with open(os.path.join(path, "appdata\system\systemdata\information.config"), 'r') as information: # path of the information.config file
-        config = json.load(information)  # loads the whole document
-        output = ""
-        for key, value in config[0].items():
-            output += f"\n{key.ljust(20)}{value}"
-        return output
+    if system.file_exists(os.path.join(path, "appdata\system\systemdata\information.config")):
+        with open(os.path.join(path, "appdata\system\systemdata\information.config"), 'r') as information: # path of the information.config file
+            config = json.load(information)  # loads the whole document
+            output = ""
+            for key, value in config[0].items():
+                output += f"\n{key.ljust(20)}{value}"
+            return output
+    else:
+        logger.error("information.config not found")
+    
+def return_system_status(): # returns the system status
+    return document_reader("accesscontrol.config", "status")
 
 def set_max_int_len(user_input): # changes the maximum integer length
     sys.set_int_max_str_digits(int(user_input))
@@ -103,6 +118,8 @@ def color_reset(): # resets the color [AI]
 
 def clear_console(): # clears the console
     os.system('cls' if os.name == 'nt' else 'clear')
+    logger.debug("Console cleared")
 
-def setup_keyboard(): # sets up the shortcuts for the program
+def setup_keyboard(): # sets up the shortcuts for the program # [beta]
     keyboard.add_hotkey('f1', lambda: print(open_link_in_browser("https://eduzg-my.sharepoint.com/:f:/g/personal/burk_manu_2022_ksz_edu-zg_ch/EviqcQd93dJOv9hP0eUGdMkBBppDHHHLWhCKwl_MPkYbLg?e=vY0rQG")))
+    logger.debug("Keyboard shortcuts set up")

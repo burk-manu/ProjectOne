@@ -61,9 +61,9 @@ def main():
         logger.debug("Default module set to master math")
 
         module_settings = {
-            "master math": (colorama.Fore.WHITE + " ▷ Enter a calculation: ", manager.operation_assignment_module),
-            "console": (colorama.Fore.LIGHTMAGENTA_EX + ">>> ", console.console),
-            "wolfram alpha": (colorama.Fore.LIGHTCYAN_EX + " ▶ Enter a calculation: ", wolframalpha_module.wolframalpha_query)
+            "master math": (colorama.Fore.WHITE + " (MasterMath) Enter a calculation: ", manager.operation_assignment_module),
+            "console": (colorama.Fore.LIGHTMAGENTA_EX + " (Console) Enter a command:  ", console.console),
+            "wolfram alpha": (colorama.Fore.LIGHTCYAN_EX + " (WolframAlpha) Enter a calculation: ", wolframalpha_module.wolframalpha_query)
         }
 
         while True:
