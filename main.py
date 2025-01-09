@@ -5,7 +5,6 @@ import colorama
 
 # adds the path to the scripts folder to the system path
 path_scripts = os.path.join(os.getcwd(), r"appdata\scripts")
-print(path_scripts)
 sys.path.insert(0, path_scripts) # inserts the path to the scripts folder to the system path
 
 
@@ -26,7 +25,7 @@ def access_check(): # Checks system access control and handles errors
         return status
     
     except Exception:
-        print("Access control failed.")
+        logger.warning("Access control failed.")
         user_input = input("Start without guarantees? [YES / NO]: ").strip().lower()
         
         if user_input != "yes":
@@ -42,7 +41,7 @@ import system
 import wolframalpha_module
 
 
-# Main function
+# Main function [AI Structure]
 def main():
     try:
         logger.debug("Program started")

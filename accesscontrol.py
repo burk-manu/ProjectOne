@@ -77,19 +77,19 @@ def accesscontrol():
     if check_access_status() == "working":
         logger.info("Access control check successful.")
         user_input = input("Device authorized. Make full system check anyway? [YES / NO]: ").strip().lower()
-        if user_input == yes:
+        if user_input != "yes":
             return "working"
-        else:
-        logger.info("Performing full system check...")
-        problems_counted = 0
-        problems_counted += check_modules()
-        problems_counted += check_directories()
-        check_os()
+        
+    logger.info("Performing full system check...")
+    problems_counted = 0
+    problems_counted += check_modules()
+    problems_counted += check_directories()
+    check_os()
 
-        time.sleep(5)
-        if problems_counted == 0:
-            logger.info("System check successful.")
-            return "working"
-        else:
-            logger.error(f"System check failed with {problems_counted} problems.")
-            return "not working"
+    time.sleep(5)
+    if problems_counted == 0:
+        logger.info("System check successful.")
+        return "working"
+    else:
+        logger.error(f"System check failed with {problems_counted} problems.")
+        return "not working"
