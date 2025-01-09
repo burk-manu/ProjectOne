@@ -51,7 +51,7 @@ def operation_assignment_module(user_input, ans): # Operation Assignment Module 
         logger.debug(f"manager received input from trigonometry module | input: {user_input} ") # logs the input
 
     operations = {
-        r"^help$": lambda: system.open_link_in_browser("https://eduzg-my.sharepoint.com/:f:/g/personal/burk_manu_2022_ksz_edu-zg_ch/EviqcQd93dJOv9hP0eUGdMkBBppDHHHLWhCKwl_MPkYbLg?e=vY0rQG"), # opens help document
+        r"^help$": lambda: system.open_document("ProjectOne.UserGuide.docx"), # opens help document
         r"^sqrt\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\)$": lambda: squareroot.square_root_calculating_module(user_input), # calculates square root
         r"^int\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?,[+-]?\d+(\.\d+)?([Ee][+-]?\d+)?,([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?|[\w\+\-\*\/\%\^])+,\w\)$": lambda: integral.integral_calculating_module(user_input), # calculates an integral
         r"^f\(\w\)=[\w\+\-\*\/\^]+$": lambda: function.function_calculating_module(user_input), # calculates Zeros of functions

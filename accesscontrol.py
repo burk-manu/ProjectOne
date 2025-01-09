@@ -7,16 +7,16 @@ import log
 
 # Define system paths
 system_paths = [
-    r"appdata/log",
-    r"appdata/scripts",
-    r"appdata/system",
-    r"appdata/system/scientificdata",
-    r"appdata/system/systemdata"
+    r"appdata\log",
+    r"appdata\scripts",
+    r"appdata\system",
+    r"appdata\system\scientificdata",
+    r"appdata\system\systemdata",
+    r"appdata\system\doc"
 ]
 modules = [
-    "sys", "os", "colorama", "time", "math", "sympy", "re", 
-    "webbrowser", "datetime", "json", "shutil", "socket", "uuid", "platform",
-    "math", "logging", "uuid", "keyboard", "wolframalpha"
+    "sys", "os", "colorama", "time", "math", "sympy", "re", "webbrowser",
+    "json", "uuid", "platform", "logging", "keyboard", "wolframalpha"
 ]
 
 # Logger setup
@@ -75,14 +75,21 @@ def check_os():
 def accesscontrol():
     # Main access control function
     if check_access_status() == "working":
-        return "working"
+        logger.info("Access control check successful.")
+        user_input = input("Device authorized. Make full system check anyway? [YES / NO]: ").strip().lower()
+        if user_input == yes:
+            return "working"
+        else:
+        logger.info("Performing full system check...")
+        problems_counted = 0
+        problems_counted += check_modules()
+        problems_counted += check_directories()
+        check_os()
 
-    logger.info("Performing full system check...")
-    problems_counted = 0
-    problems_counted += check_modules()
-    problems_counted += check_directories()
-    check_os()
-
-    time.sleep(3)
-    
-    return "working" if problems_counted == 0 else "not working"
+        time.sleep(5)
+        if problems_counted == 0:
+            logger.info("System check successful.")
+            return "working"
+        else:
+            logger.error(f"System check failed with {problems_counted} problems.")
+            return "not working"

@@ -56,7 +56,7 @@ def document_reader(document_name, key, element=0): # reads information from a d
     else:
         return f"couldn't find File {document_name} in 'appdata\system\systemdata'"
 
-def open_document(document_name, prepath=os.getcwd(), path=r"appdata\system\doc")): # opens a document
+def open_document(document_name, prepath=os.getcwd(), path=r"appdata\system\doc"): # opens a document
     if system.file_exists(os.path.join(prepath, path, document_name)):
         os.startfile(os.path.join(path, document_name))
         logger.debug(f"Document {document_name} opened")
