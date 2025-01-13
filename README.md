@@ -17,7 +17,6 @@
 - [Requirements](#requirements)
 - [Project Structure](#project-structure)
 - [Contributing](#contributing)
-- [Contact](#contact)
 
 ---
 
@@ -39,10 +38,10 @@ To set up Project One on your computer:
    git clone https://github.com/burk-manu/ProjectOne.git
 
 3. **Run the Programme**:  
-   Run the main.py in the programme.main folder. You can also run the ProjectOne.cmd file in the console.
+   Run the ProjectOne.cmd file or if you can't do this run main.py.
    
 4. **Complete Set-Up**:  
-Type 'help' into the program and follow the steps in the QUICK START GUIDE that opens.
+Follow the instructions in the user guide file which opens after starting the programme.
 
 ## Usage
 Once you've installed Project One on your computer, run Main.py and follow the instructions.
@@ -78,19 +77,13 @@ As this project is for educational purposes only and is part of a school project
 
 Please feel free to view or use the project for personal or educational purposes only, in accordance with the licence terms.
 
-## Contact
-If you have any questions about how to use the software, or information about troubleshooting, please contact the developer at the following email address.
-
-**name**: Manuel Bürki  
-**e-mail**: Project.One@gmx.ch
-
 
 <footer>
 
 ---
 
-Get help: [Post in our discussion board](https://github.com/orgs/skills/discussions/categories/introduction-to-github) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
+Get help: [Contact developer](mailto:ProjectOne@gmx.ch) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
 
-&copy; 2024 Manuel Bürki &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [MIT License](https://gh.io/mit)
+&copy; 2024 Manuel Bürki &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [License](LICENSE.md)
 
 </footer>

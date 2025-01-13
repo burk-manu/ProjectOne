@@ -55,7 +55,7 @@ def operation_assignment_module(user_input, ans): # Operation Assignment Module 
         r"^sqrt\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\)$": lambda: squareroot.square_root_calculating_module(user_input), # calculates square root
         r"^int\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?,[+-]?\d+(\.\d+)?([Ee][+-]?\d+)?,([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?|[\w\+\-\*\/\%\^])+,\w\)$": lambda: integral.integral_calculating_module(user_input), # calculates an integral
         r"^f\(\w\)=[\w\+\-\*\/\^]+$": lambda: function.function_calculating_module(user_input), # calculates Zeros of functions
-        r"^(log\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\)|ln\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\)|log10\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\))$": lambda: logarithm.logarithm_calculation_module(user_input), # calculates logarithms
+        r"^(log\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?, [+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\)|ln\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\)|log10\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\))$": lambda: logarithm.logarithm_calculation_module(user_input), # calculates logarithms
         r"^([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?|[\w\+\-\*\/\%\^])+$": lambda: basic_operations.basic_operations_module(user_input), # calculates basic operations
         }
     
