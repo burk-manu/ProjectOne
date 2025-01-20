@@ -31,15 +31,6 @@ Project maintainers are responsible for clarifying and enforcing the standards o
 
 This Code of Conduct applies within all project spaces (such as GitHub repositories, discussions, and issues) and also applies in public spaces where an individual is representing the project or community.
 
-## Reporting Violations
-
-If you experience or witness unacceptable behavior, or have any other concerns, please report it by contacting:
-
-**Manuel Bürki**  
-**Email**: [Project.One@gmx.ch](mailto:Project.One@gmx.ch)
-
-All reports will be handled confidentially. The project maintainers will investigate the issue and take appropriate action.
-
 ## Enforcement Guidelines
 
 Project maintainers will follow these Community Impact Guidelines in determining the consequences for any violations of this Code of Conduct:

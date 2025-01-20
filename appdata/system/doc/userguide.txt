@@ -1,5 +1,5 @@
 command                                  function
-----------------------------------------+-----------------------------------------+
+----------------------------------------+------------------------------------------+
 > main commands                         |                                          |
 master math                             | change module to master math             |
 console                                 | change module to console                 |
@@ -17,23 +17,23 @@ sqrt(15)                                | square root                           
                                         |                                          |
 ln(15)                                  | natural logarithm base e ~ 2.7           | 
 log10(15)                               | logarithm with base 10                   |
-log(2, 8)                               | logarithm with base b =                  |
+log(8, 2)                               | logarithm with base b = 2                |
                                         |                                          |
                                         |                                          |
+> Wolfram Alpha                         |                                          |
+- use Wolfram language for inputs       |                                          |
+- use english                           |                                          |
                                         |                                          |
                                         |                                          |
-                                        |                                          |
-                                        |                                          |
-                                        |                                          |
-                                        |                                          |
-                                        |                                          |
-                                        |                                          |
-                                        |                                          |
-                                        |                                          |
-                                        |                                          |
-                                        |                                          |
-                                        |                                          |
-                                        |                                          |
+> Console                               |                                          |
+exit                                    | stopps the programme                     |
+reset                                   | resets system settings to default        |
+system info                             | prints system info                       |
+system status                           | prints system status                     |
+set max int len 'INTEGER'               | prints system status                     |
+report bug                              | opens a website to report bugs           |
+read "PATH"                             | input: "documentname", "key"             |
+clear                                   | clear console                            |
                                         |                                          |
                                         |                                          |
                                         |                                          |

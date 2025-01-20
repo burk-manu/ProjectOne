@@ -24,7 +24,7 @@ def function_calculating_module(user_input): # calculates Zeros of a function, d
             derivation1 = sp.diff(function, solve_for)
             derivation2 = sp.diff(derivation1, solve_for)
             derivation3 =sp.diff(derivation2, solve_for)
-            numeric_solutions = [sol.evalf() for sol in solutions]  # changes zeros of the function into numeric values
+            numeric_solutions = [sol.evalf() for sol in solutions] # changes zeros of the function into numeric values
             return f"""function f({solve_for}) = {function}
             Zeros of the function f(x):		{numeric_solutions}
             F({solve_for}) = 				{integral}

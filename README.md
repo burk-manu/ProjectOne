@@ -2,6 +2,7 @@
 
 ![picture](appdata/icons/ProjectOneIcon.png)
 
+
 ---
 
 **Project One** is a complex programme with many different functions. The majority of these are the calculation functions. These are spread over several modules and are grouped together under the name Master Math. Project One has a number of other features such as a system console, log files, settings and many more.
@@ -44,9 +45,8 @@ To set up Project One on your computer:
 Follow the instructions in the user guide file which opens after starting the programme.
 
 ## Usage
-Once you've installed Project One on your computer, run Main.py and follow the instructions.
-If you need help, make sure you are connected to the internet.
-Then type 'help', this command will open a document in your browser.
+Once you've installed Project One on your computer, run main.py and follow the instructions.
+If you need help, type 'help', this command will open a .txt document with the syntax structure and important commands.
 
 ## Requirements
 To run or develop this project, you should ensure that your system has the following requirements.
@@ -56,18 +56,7 @@ If you are not sure whether your system has the necessary requirements, you can 
 - **Operating System**: Windows 11 (recommended: other operating systems may causes errors)
 - **Programming Language**: Python 3.10
 - **Integrated Development Environment (IDE)**: Visual Studio Code or use cmd instead
-- **Libraries**:
-  - sympy
-  - math
-  - datetime
-  - time
-  - sys
-  - os
-  - colorama
-  - re
-  - webbrowser
-  - json
-  - shutil
+
 
 ## Project Structure
 ![image](appdata/icons/architecture.png)
@@ -77,13 +66,18 @@ As this project is for educational purposes only and is part of a school project
 
 Please feel free to view or use the project for personal or educational purposes only, in accordance with the licence terms.
 
-
 <footer>
+
+
+
+
+
+&copy; 2025 Manuel Bürki &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [License](LICENSE.md)
+
+</footer>
 
 ---
 
-Get help: [Contact developer](mailto:ProjectOne@gmx.ch) &bull; [Review the GitHub status page](https://www.githubstatus.com/)
+<div align = center>
 
-&copy; 2024 Manuel Bürki &bull; [Code of Conduct](https://www.contributor-covenant.org/version/2/1/code_of_conduct/code_of_conduct.md) &bull; [License](LICENSE.md)
-
-</footer>
+[![Button](https://img.shields.io/badge/CONTACT-37a779?style=for-the-badge)](mailto:Project.One@gmx.ch)

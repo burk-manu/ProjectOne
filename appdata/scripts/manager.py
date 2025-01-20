@@ -50,13 +50,14 @@ def operation_assignment_module(user_input, ans): # Operation Assignment Module 
         user_input = trigonometry.calculate_trigonometric_functions(user_input) # replaces trigonometric functions with their values
         logger.debug(f"manager received input from trigonometry module | input: {user_input} ") # logs the input
 
+    # The following RegEx patterns were created with help from AI
     operations = {
-        r"^help$": lambda: system.open_document("ProjectOne.UserGuide.docx"), # opens help document
+        r"^help$": lambda: system.open_document("userguide.txt"), # opens help document
         r"^sqrt\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\)$": lambda: squareroot.square_root_calculating_module(user_input), # calculates square root
         r"^int\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?,[+-]?\d+(\.\d+)?([Ee][+-]?\d+)?,([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?|[\w\+\-\*\/\%\^])+,\w\)$": lambda: integral.integral_calculating_module(user_input), # calculates an integral
         r"^f\(\w\)=[\w\+\-\*\/\^]+$": lambda: function.function_calculating_module(user_input), # calculates Zeros of functions
         r"^(log\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?,[+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\)|ln\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\)|log10\([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?\))$": lambda: logarithm.logarithm_calculation_module(user_input), # calculates logarithms
-        r"^([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?|[\w\+\-\*\/\%\^])+$": lambda: basic_operations.basic_operations_module(user_input), # calculates basic operations
+        r"^([+-]?\d+(\.\d+)?([Ee][+-]?\d+)?|[\w\+\-\*\/\%\^\(\))])+$": lambda: basic_operations.basic_operations_module(user_input), # calculates basic operations
         }
     
     if "ans" in str(user_input):

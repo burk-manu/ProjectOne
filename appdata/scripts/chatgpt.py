@@ -1,5 +1,5 @@
 # ChatGPT Module
-# Beta Version (Not working yet)
+# Beta Version (not working yet)
 
 """
 import openai
