@@ -61,7 +61,7 @@ def main():
 
         module_settings = {
             "master math": (colorama.Fore.WHITE + " (MasterMath) Enter a calculation: ", manager.operation_assignment_module),
-            "console": (colorama.Fore.LIGHTMAGENTA_EX + " (Console) Enter a command:  ", console.console),
+            "console": (colorama.Fore.LIGHTMAGENTA_EX + " (Console) Enter a command: ", console.console),
             "wolfram alpha": (colorama.Fore.LIGHTCYAN_EX + " (WolframAlpha) Enter a calculation: ", wolframalpha_module.wolframalpha_query)
         }
 

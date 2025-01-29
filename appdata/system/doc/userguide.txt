@@ -30,9 +30,9 @@ exit                                    | stopps the programme                  
 reset                                   | resets system settings to default        |
 system info                             | prints system info                       |
 system status                           | prints system status                     |
-set max int len 'INTEGER'               | prints system status                     |
+set max int len 'INTEGER'               | changes max string int conversion        |
 report bug                              | opens a website to report bugs           |
-read "PATH"                             | input: "documentname", "key"             |
+read "DOCUMENT", "KEY"                  | input: "documentname", "key"             |
 clear                                   | clear console                            |
                                         |                                          |
                                         |                                          |

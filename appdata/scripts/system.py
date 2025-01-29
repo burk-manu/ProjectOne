@@ -87,7 +87,7 @@ def reset(): # resets the system
 def return_system_info(): # returns system information
     logger.debug("returning system information")
     path = os.getcwd()  # path of the 'Main.py' script
-    if system.file_exists(os.path.join(path, "appdata\system\systemdata\information.config")):
+    if file_exists(os.path.join(path, "appdata\system\systemdata\information.config")):
         with open(os.path.join(path, "appdata\system\systemdata\information.config"), 'r') as information: # path of the information.config file
             config = json.load(information)  # loads the whole document
             output = ""
