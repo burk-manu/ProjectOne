@@ -122,5 +122,5 @@ def clear_console(): # clears the console
     logger.debug("Console cleared")
 
 def setup_keyboard(): # sets up the shortcuts for the program # [beta]
-    keyboard.add_hotkey('f1', lambda: print(open_link_in_browser("https://eduzg-my.sharepoint.com/:f:/g/personal/burk_manu_2022_ksz_edu-zg_ch/EviqcQd93dJOv9hP0eUGdMkBBppDHHHLWhCKwl_MPkYbLg?e=vY0rQG")))
+    keyboard.add_hotkey('f1', lambda: open_link_in_browser("https://eduzg-my.sharepoint.com/:f:/g/personal/burk_manu_2022_ksz_edu-zg_ch/EviqcQd93dJOv9hP0eUGdMkBBppDHHHLWhCKwl_MPkYbLg?e=vY0rQG"))
     logger.debug("Keyboard shortcuts set up")

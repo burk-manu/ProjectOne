@@ -54,7 +54,7 @@ def setup_logger(name="host", log_dir="appdata/log", max_bytes=1024*8, backup_co
         console_handler = logging.StreamHandler()
         console_handler.setLevel(logging.INFO)
         
-        # Verwende die farbige Formatter
+        # add color to console output
         console_formatter = ColoredFormatter("%(levelname)s - %(message)s")
         console_handler.setFormatter(console_formatter)
         console_handler.stream.reconfigure(encoding='utf-8')
