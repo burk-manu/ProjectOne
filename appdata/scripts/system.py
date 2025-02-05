@@ -10,6 +10,9 @@ import log
 
 logger = log.setup_logger(name=f"host.{__name__}") # setup logger
 
+def get_base_dir(): # returns the base directory
+    return os.path.dirname(os.path.abspath(sys.argv[0]))
+
 def get_mac_adress(): # returns the mac address [AI]
     mac_adress = ':'.join(['{:02x}'.format((uuid.getnode() >> elements) & 0xff) for elements in range(0,2*6,2)][::-1])
     return mac_adress
@@ -23,7 +26,7 @@ def file_exists(path): # checks if a file exists
 def document_writer(document_name, key, value, path=os.path.join(os.getcwd(), r"appdata\system\systemdata"), element=0): # writes data into a document
     directory_path = path
     document_path = os.path.join(directory_path, document_name)
-    if os.path.exists(document_path):
+    if file_exists(document_path):
         with open (document_path, 'r') as document_json:
             document = json.load(document_json)
             if isinstance(document, list):
@@ -40,21 +43,14 @@ def document_writer(document_name, key, value, path=os.path.join(os.getcwd(), r"
         return f"document {document_name} couldn't be found in directory '{directory_path}'"
 
     
-def document_reader(document_name, key, element=0): # reads information from a document
-    document_path = os.path.join(os.getcwd(), r"appdata\system\systemdata",document_name)
+def document_reader(document_name, base_dir=get_base_dir(), dir=r"appdata\system\systemdata"): # reads information from a document
+    document_path = os.path.join(base_dir, dir ,document_name)
     if file_exists(document_path):
         with open (document_path, 'r') as document_json:
             document = json.load(document_json)
-            if isinstance(document, list):
-                document = document[element]
-            if isinstance(document, dict):
-                try:
-                    value = document[key]
-                    return value
-                except KeyError:
-                    return f"couldn't find key {key} in document {document_name}"
+            return document
     else:
-        return f"couldn't find File {document_name} in 'appdata\system\systemdata'"
+        return None
 
 def open_document(document_name, prepath=os.getcwd(), path=r"appdata\system\doc"): # opens a document
     if file_exists(os.path.join(prepath, path, document_name)):
